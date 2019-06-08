@@ -2,13 +2,16 @@ package com.upgrad.FoodOrderingApp.api.controller;
 
 
 import com.upgrad.FoodOrderingApp.api.model.LoginResponse;
+import com.upgrad.FoodOrderingApp.api.model.LogoutResponse;
 import com.upgrad.FoodOrderingApp.api.model.SignupCustomerRequest;
 import com.upgrad.FoodOrderingApp.api.model.SignupCustomerResponse;
 import com.upgrad.FoodOrderingApp.service.businness.LoginBusinessService;
+import com.upgrad.FoodOrderingApp.service.businness.LogoutBusinessService;
 import com.upgrad.FoodOrderingApp.service.businness.SignupBusinessService;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthTokenEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AuthenticationFailedException;
+import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SignUpRestrictedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -35,8 +38,8 @@ public class CustomerController {
     @Autowired
     private LoginBusinessService loginBusinessService;
 
-   // @Autowired
-   // private LogoutBusinessService logoutBusinessService;
+    @Autowired
+    private LogoutBusinessService logoutBusinessService;
 
    // @Autowired
    // private UpdateBusinessService updateBusinessService;
@@ -95,5 +98,16 @@ public class CustomerController {
         return new ResponseEntity<LoginResponse>(  loginResponse, headers, HttpStatus.OK);
     }
 
+    //logout method is used to logout a loggedin customer from the application
+    @RequestMapping(method=RequestMethod.POST,path="/customer/logout",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<LogoutResponse> logout(@RequestHeader("accessToken") final String accessToken)throws AuthorizationFailedException {
+        String [] bearerToken = accessToken.split("Bearer ");
+        final CustomerAuthTokenEntity customerAuthTokenEntity=logoutBusinessService.verifyAuthToken(bearerToken[1]);
+
+        LogoutResponse logoutResponse=new LogoutResponse()
+                .id(customerAuthTokenEntity.getUuid())
+                .message("LOGGED OUT SUCCESSFULLY");
+        return new ResponseEntity<LogoutResponse>(logoutResponse,HttpStatus.OK);
+    }
 
 }
