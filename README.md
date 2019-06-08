@@ -34,3 +34,6 @@ Input format for API Request body ..This is bcoz of @RequestBody(required = fals
 Pending tasks for signup: Three format validations code need to be written (assigned to deepa ) [08-06-2019 04:50 AM]
 -----------------------------------------------------------------------------------------------------
 LOGIN=> started looking into it ...
+![image](https://user-images.githubusercontent.com/44507567/59139817-9563ae80-89b3-11e9-84f0-b51c3c4142bd.png)
+Testing in progress[06:07AM]  ...Break ..=>
+----------------------
