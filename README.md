@@ -1,5 +1,5 @@
 # Capstone_Backend
-08-06-2019 02:48 AM 
+SESSION ONE STARTS => 08-06-2019 02:48 AM 
 CUSTOMERCONTROLLER => signup
                     =>login
                     =>logout
@@ -57,3 +57,17 @@ First two exception working output result as below:
 ![login_excp_2](https://user-images.githubusercontent.com/44507567/59140998-1a09f900-89c3-11e9-81c1-7860e3afcb39.JPG)
 LOGIN DONE => 1 pending task for deepa , plz define code for exception ATH-003 [07:59 AM]
 ------------------------------------------------------------------------------------
+![image](https://user-images.githubusercontent.com/44507567/59141410-12018780-89ca-11e9-8f5e-868e5d376630.png)
+Outputs:
+![logout_exp_1](https://user-images.githubusercontent.com/44507567/59141411-1fb70d00-89ca-11e9-95ee-b30710b75dd2.JPG)
+![logout_exp_2](https://user-images.githubusercontent.com/44507567/59141412-23e32a80-89ca-11e9-9c22-b52fe9eed837.JPG)
+![logout_exps](https://user-images.githubusercontent.com/44507567/59141414-28a7de80-89ca-11e9-864b-35b4f4855a96.JPG)
+--------------------
+PLEASE CHECK IF ALL REQUIREMENTS ARE WORKING FINE.
+-------------------------------------------------------------
+
+
+SIGNUP=>LOGIN=>LOGOUT=> Need help with 4 pending tasks (Conditions for exceptions needs to be written and PLZ do TESTING for all the code written ) @Deepa
+------------------------------------------------------------
+[08:51 AM] SESSION ONE STARTS => 08-06-2019 02:48 AM  and ENDS 08:51 AM => 6 hrs approx 3 API's , more 19 => 19 * 2 hrs => 38 hrs => 38 hrs plus unplanned time 12 hrs 50 hrs => 5 days => 10 hrs per day  !!! Target ...Just need help from you when ever u can ..u n me can develop all the API's if we work as a Team.. 
+-----------------------------------------
