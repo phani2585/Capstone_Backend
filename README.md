@@ -41,8 +41,8 @@ Work resumes @ [06:31 AM]
 -------------------------------
 ![image](https://user-images.githubusercontent.com/44507567/59140779-f2656180-89bf-11e9-8b9a-0c4d54e76307.png)
 -----------------------------
-Here contactNumber is used as username as per problem statement
+Here contactNumber is used as username as per problem statement & password is "1234abcd56". So Base 64 encoding of contactnumber:password gives the below code which is used for Basic authentication (when user logsin for the first time)
 ![image](https://user-images.githubusercontent.com/44507567/59140798-0f019980-89c0-11e9-95df-c43905d874c8.png)
 ------------------------------
 ![image](https://user-images.githubusercontent.com/44507567/59140814-39ebed80-89c0-11e9-9766-2f6c84e68260.png)
-Plz note accesstoken displayed in response header at the bottom ..
+Plz note accesstoken displayed in response header at the bottom ..(This accesstoken is used till user logsouts or when ever he signsin for second time or any other time.)
