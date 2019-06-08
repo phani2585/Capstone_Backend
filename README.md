@@ -46,3 +46,14 @@ Here contactNumber is used as username as per problem statement & password is "1
 ------------------------------
 ![image](https://user-images.githubusercontent.com/44507567/59140814-39ebed80-89c0-11e9-9766-2f6c84e68260.png)
 Plz note accesstoken displayed in response header at the bottom ..(This accesstoken is used till user logsouts or when ever he signsin for second time or any other time.)
+
+-----------------------------
+![image](https://user-images.githubusercontent.com/44507567/59140974-c39cba80-89c2-11e9-925d-178c15e6c47f.png)
+Two out of three exceptions are taken care of. Some one please write the code for third ATH-003 exception(@deepa).
+![image](https://user-images.githubusercontent.com/44507567/59140988-f0e96880-89c2-11e9-9d59-254fc266b2d3.png)
+----------------
+First two exception working output result as below:
+![login_excp_1](https://user-images.githubusercontent.com/44507567/59140996-15dddb80-89c3-11e9-839b-fd2f15fe42c1.JPG)
+![login_excp_2](https://user-images.githubusercontent.com/44507567/59140998-1a09f900-89c3-11e9-81c1-7860e3afcb39.JPG)
+LOGIN DONE => 1 pending task for deepa , plz define code for exception ATH-003 [07:59 AM]
+------------------------------------------------------------------------------------
