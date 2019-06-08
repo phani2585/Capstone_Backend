@@ -51,7 +51,7 @@ public class CustomerEntity implements Serializable {
     @Column(
             name = "LASTNAME"
     )
-    @NotNull
+    //lastName can be NULL
     @Size(
             max = 30
     )
