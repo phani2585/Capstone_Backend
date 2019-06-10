@@ -85,5 +85,11 @@ For e.g., authentication is given as Basic MTIzNDU2Nzg5MDoxMjM0QGFiY2RF where us
 I THINK =>We need to check for three conditions here if username/contactno is given in valid format , similarly password valid format and if Basic word is appended in the beginning.
 I wrote code for 2 conditions. Please verify n write code to check Basic word is present or not or if the entire code i wrote is correct or not .
 ----------------------------------------
+![image](https://user-images.githubusercontent.com/44507567/59228075-861f7380-8bf4-11e9-9612-c96e33a82b29.png)
+-----------------------
+1 issue: Here api response is showing as firstname and last name updated but when checked in Database, changes are not updated.I must ve made some silly mistake.plz check and update code accordingly ..
+------------------------
+![image](https://user-images.githubusercontent.com/44507567/59228188-d1d21d00-8bf4-11e9-806a-668dd396a048.png)
+----------------------------------
 
 -----------------------------------------
