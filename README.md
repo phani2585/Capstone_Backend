@@ -69,5 +69,27 @@ PLEASE CHECK IF ALL REQUIREMENTS ARE WORKING FINE.
 
 SIGNUP=>LOGIN=>LOGOUT=> Need help with 4 pending tasks (Conditions for exceptions needs to be written and PLZ do TESTING for all the code written ) @Deepa
 ------------------------------------------------------------
-[08:51 AM] SESSION ONE STARTS => 08-06-2019 02:48 AM  and ENDS 08:51 AM => 6 hrs approx 3 API's , more 19 => 19 * 2 hrs => 38 hrs => 38 hrs plus unplanned time 12 hrs 50 hrs => 5 days => 10 hrs per day  !!! Target ...Just need help from you when ever u can ..u n me can develop all the API's if we work as a Team.. 
+[08:51 AM] SESSION ONE STARTS => 08-06-2019 02:48 AM  and ENDS 08:51 AM => 6 hrs approx 3 API's , more 19 => 19 * 2 hrs => 38 hrs => 38 hrs plus unplanned time 12 hrs 50 hrs => 5 days => 10 hrs per day  !!! Target ...Just need help from you when ever u can ..u n me can develop all the API's if we work as a Team..
+--------------------------------------
+11-06-2019 Latest update:
+
+------------------
+Note: First three code snippets are working fine (the ones u wrote for format checking of email, contactno and password)
+Below is the code I write for pending task 4 .
+-----------
+If the Basic authentication is not provided in correct format, throw “AuthenticationFailedException” with the message code (ATH-003) and message (Incorrect format of decoded customer name and password) along with the corresponding HTTP status.
+------------------------------
+![image](https://user-images.githubusercontent.com/44507567/59226476-b238f580-8bf0-11e9-8908-1432cbb3c568.png)
+---------------------------------------
+For e.g., authentication is given as Basic MTIzNDU2Nzg5MDoxMjM0QGFiY2RF where username(contactno):password are 1234567890:1234@abcdE
+I THINK =>We need to check for three conditions here if username/contactno is given in valid format , similarly password valid format and if Basic word is appended in the beginning.
+I wrote code for 2 conditions. Please verify n write code to check Basic word is present or not or if the entire code i wrote is correct or not .
+----------------------------------------
+Update Customer working fine
+----------------------------------
+Change password working fine but some code needs to be added in order to encrypt and decrypt password .We can discuss and if u r fine u can take this up or i will do it if u find it difficult ...I m moving on to create enitities for diff tables .
+
 -----------------------------------------
+![image](https://user-images.githubusercontent.com/44507567/59232391-c0434200-8c01-11e9-8eee-623352726e15.png)
+5 API's ready .  Necessary fixes need to be done and one round of Testing needs to be done. Ghanshyam n sanjay will do second round of testing ..
+------------------------
