@@ -77,7 +77,7 @@ SIGNUP=>LOGIN=>LOGOUT=> Need help with 4 pending tasks (Conditions for exception
 Note: First three code snippets are working fine (the ones u wrote for format checking of email, contactno and password)
 Below is the code I write for pending task 4 .
 -----------
-If the Basic authentication is not provided incorrect format, throw “AuthenticationFailedException” with the message code (ATH-003) and message (Incorrect format of decoded customer name and password) along with the corresponding HTTP status.
+If the Basic authentication is not provided in correct format, throw “AuthenticationFailedException” with the message code (ATH-003) and message (Incorrect format of decoded customer name and password) along with the corresponding HTTP status.
 ------------------------------
 ![image](https://user-images.githubusercontent.com/44507567/59226476-b238f580-8bf0-11e9-8908-1432cbb3c568.png)
 ---------------------------------------
@@ -85,11 +85,11 @@ For e.g., authentication is given as Basic MTIzNDU2Nzg5MDoxMjM0QGFiY2RF where us
 I THINK =>We need to check for three conditions here if username/contactno is given in valid format , similarly password valid format and if Basic word is appended in the beginning.
 I wrote code for 2 conditions. Please verify n write code to check Basic word is present or not or if the entire code i wrote is correct or not .
 ----------------------------------------
-![image](https://user-images.githubusercontent.com/44507567/59228075-861f7380-8bf4-11e9-9612-c96e33a82b29.png)
------------------------
-1 issue: Here api response is showing as firstname and last name updated but when checked in Database, changes are not updated.I must ve made some silly mistake.plz check and update code accordingly ..
-------------------------
-![image](https://user-images.githubusercontent.com/44507567/59228188-d1d21d00-8bf4-11e9-806a-668dd396a048.png)
+Update Customer working fine
 ----------------------------------
+Change password working fine but some code needs to be added in order to encrypt and decrypt password .We can discuss and if u r fine u can take this up or i will do it if u find it difficult ...I m moving on to create enitities for diff tables .
 
 -----------------------------------------
+![image](https://user-images.githubusercontent.com/44507567/59232391-c0434200-8c01-11e9-8eee-623352726e15.png)
+5 API's ready .  Necessary fixes need to be done and one round of Testing needs to be done. Ghanshyam n sanjay will do second round of testing ..
+------------------------
