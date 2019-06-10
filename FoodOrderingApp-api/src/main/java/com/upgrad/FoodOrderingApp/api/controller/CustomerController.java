@@ -1,18 +1,14 @@
 package com.upgrad.FoodOrderingApp.api.controller;
 
-
-import com.upgrad.FoodOrderingApp.api.model.LoginResponse;
-import com.upgrad.FoodOrderingApp.api.model.LogoutResponse;
-import com.upgrad.FoodOrderingApp.api.model.SignupCustomerRequest;
-import com.upgrad.FoodOrderingApp.api.model.SignupCustomerResponse;
-import com.upgrad.FoodOrderingApp.service.businness.LoginBusinessService;
-import com.upgrad.FoodOrderingApp.service.businness.LogoutBusinessService;
-import com.upgrad.FoodOrderingApp.service.businness.SignupBusinessService;
+//import necessary packages
+import com.upgrad.FoodOrderingApp.api.model.*;
+import com.upgrad.FoodOrderingApp.service.businness.*;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthTokenEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AuthenticationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SignUpRestrictedException;
+import com.upgrad.FoodOrderingApp.service.exception.UpdateCustomerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,6 +23,7 @@ import java.util.UUID;
 
 //RestController annotation specifies that this class represents a REST API(equivalent of @Controller + @ResponseBody)
 @RestController
+//"@CrossOrigin” annotation enables cross-origin requests for all methods in that specific controller class.
 @CrossOrigin
 @RequestMapping("/")
 public class CustomerController {
@@ -41,18 +38,17 @@ public class CustomerController {
     @Autowired
     private LogoutBusinessService logoutBusinessService;
 
-   // @Autowired
-   // private UpdateBusinessService updateBusinessService;
+    @Autowired
+    private UpdateBusinessService updateBusinessService;
 
-   // @Autowired
-   // private ChangePasswordBusinessService changePasswordBusinessService;
+    @Autowired
+    private ChangePasswordBusinessService changePasswordBusinessService;
 
 
-    //signup  endpoint requests for all the attributes in “SignupCustomerRequest” about the customer and registers a customer successfully
-    //PLEASE NOTE @RequestBody(required = false) inside signup function.This will disable parameters in request body in request model.Refer to README file in my github repo.
-
+    //signup  endpoint requests for all the attributes in “SignupCustomerRequest” about the customer and registers a customer successfully.
+    //PLEASE NOTE @RequestBody(required = false) inside signup function will disable parameters in request body in request model.
     @RequestMapping(method = RequestMethod.POST, path = "/customer/signup", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<SignupCustomerResponse> signup( @RequestBody(required = false)final SignupCustomerRequest signupCustomerRequest) throws SignUpRestrictedException {
+    public ResponseEntity<SignupCustomerResponse> signup( @RequestBody(required = false) final SignupCustomerRequest signupCustomerRequest) throws SignUpRestrictedException {
 
         final CustomerEntity customerEntity = new CustomerEntity();
 
@@ -71,9 +67,10 @@ public class CustomerController {
         return new ResponseEntity<SignupCustomerResponse>(customerResponse, HttpStatus.CREATED);
     }
 
-    //login method is used to perform a Basic authorization when the customer tries to login for the first time
+    //login method is used to perform a Basic authorization when the customer tries to login for the first time.
     @RequestMapping(method = RequestMethod.POST, path = "/customer/login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<LoginResponse> login(@RequestHeader("authentication") final String authentication) throws AuthenticationFailedException {
+       // loginBusinessService.checkAuthenticationFormat(authentication);
         byte[] decode = Base64.getDecoder().decode(authentication.split("Basic ")[1]);
         String decodedText = new String(decode);
         String[] decodedArray = decodedText.split(":");
@@ -98,7 +95,7 @@ public class CustomerController {
         return new ResponseEntity<LoginResponse>(  loginResponse, headers, HttpStatus.OK);
     }
 
-    //logout method is used to logout a loggedin customer from the application
+    //logout method is used to logout a loggedin customer from the application.
     @RequestMapping(method=RequestMethod.POST,path="/customer/logout",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<LogoutResponse> logout(@RequestHeader("accessToken") final String accessToken)throws AuthorizationFailedException {
         String [] bearerToken = accessToken.split("Bearer ");
@@ -110,4 +107,34 @@ public class CustomerController {
         return new ResponseEntity<LogoutResponse>(logoutResponse,HttpStatus.OK);
     }
 
+    //Update method is used to update the customer firstname and lastname from the application.
+    @RequestMapping(method=RequestMethod.PUT,path="/customer",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<UpdateCustomerResponse> update(@RequestBody(required = false) final UpdateCustomerRequest updateCustomerRequest,
+                                                         @RequestHeader("accessToken") final String accessToken) throws UpdateCustomerException,AuthorizationFailedException {
+
+        String [] bearerToken = accessToken.split("Bearer ");
+        final CustomerEntity updatedCustomerEntity=updateBusinessService.verifyCustomerDetails(bearerToken[1],updateCustomerRequest.getFirstName(),updateCustomerRequest.getLastName());
+
+        UpdateCustomerResponse updateCustomerResponse=new UpdateCustomerResponse()
+                .firstName(updatedCustomerEntity.getFirstName())
+                .lastName(updatedCustomerEntity.getLastName())
+                .id(updatedCustomerEntity.getUuid())
+                .status("CUSTOMER DETAILS UPDATED SUCCESSFULLY");
+        return new ResponseEntity<UpdateCustomerResponse>(updateCustomerResponse,HttpStatus.OK);
+    }
+
+    //Change password method is used to change the customer password details from the application.
+    @RequestMapping(method=RequestMethod.PUT,path="/customer/password",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<UpdatePasswordResponse> update(@RequestBody(required = false)final UpdatePasswordRequest updatePasswordRequest,
+                                                         @RequestHeader("accessToken") final String accessToken) throws UpdateCustomerException,AuthorizationFailedException {
+
+        String [] bearerToken = accessToken.split("Bearer ");
+
+        final CustomerEntity updatedCustomerEntity=changePasswordBusinessService.updateCustomerPassword(bearerToken[1],updatePasswordRequest.getOldPassword(),updatePasswordRequest.getNewPassword());
+
+        UpdatePasswordResponse updatePasswordResponse=new UpdatePasswordResponse()
+                .id(updatedCustomerEntity.getUuid())
+                .status("CUSTOMER PASSWORD UPDATED SUCCESSFULLY");
+        return new ResponseEntity<UpdatePasswordResponse>(updatePasswordResponse,HttpStatus.OK);
+    }
 }

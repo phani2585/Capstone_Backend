@@ -2,25 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="927d5d8a-5025-44a2-97c5-297596f3b1a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/.swagger-codegen-ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/.swagger-codegen/VERSION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/CustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/ChangePasswordBusinessService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/UpdateBusinessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/FoodOrderingApp-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/FoodOrderingApp-api-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/FoodOrderingAppApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/FoodOrderingAppApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/AddressList.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/AddressList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/AddressListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/AddressListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/AddressListState.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/AddressListState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoriesListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoriesListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoryDetailsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoryDetailsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoryList.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoryList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoryListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CategoryListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CouponDetailsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CouponDetailsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CustomerOrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/CustomerOrderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/DeleteAddressResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/DeleteAddressResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemQuantity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemQuantity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemQuantityResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemQuantityResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemQuantityResponseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/ItemQuantityResponseItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/LogoutResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/LogoutResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderList.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListAddressState.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListAddressState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListCoupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListCoupon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/OrderListPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/PaymentListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/PaymentListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/PaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/PaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantDetailsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantDetailsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantDetailsResponseAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantDetailsResponseAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantDetailsResponseAddressState.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantDetailsResponseAddressState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantList.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantUpdatedResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/RestaurantUpdatedResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveAddressRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveAddressRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveAddressResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveAddressResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveOrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SaveOrderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/StatesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/StatesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/StatesListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/StatesListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdatePasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdatePasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdatePasswordResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdatePasswordResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/ApiException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/ApiOriginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/ApiOriginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/ApiResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/ApiResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/api/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/configuration/SwaggerDocumentationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/io/swagger/configuration/SwaggerDocumentationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-db/target/FoodOrderingApp-db.jar" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-db/target/FoodOrderingApp-db.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/FoodOrderingApp-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/FoodOrderingApp-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/JwtTokenProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/JwtTokenProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/PasswordCryptographyProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/PasswordCryptographyProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/common/GenericErrorCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/common/GenericErrorCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/common/UnexpectedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/common/UnexpectedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/AddressNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/AddressNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/AuthenticationFailedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/AuthenticationFailedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/AuthorizationFailedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/AuthorizationFailedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/CategoryNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/CategoryNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/CouponNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/CouponNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/CustomerNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/CustomerNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/InvalidRatingException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/InvalidRatingException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/ItemNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/ItemNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/PaymentMethodNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/PaymentMethodNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/RestaurantNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/RestaurantNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/SaveAddressException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/SaveAddressException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/SignUpRestrictedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/SignUpRestrictedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/UpdateCustomerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/exception/UpdateCustomerException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/FoodOrderingApp-api/target/" />
     <ignored path="$PROJECT_DIR$/FoodOrderingApp-db/target/" />
@@ -36,49 +107,51 @@
     <session id="-1120555177">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="21" />
-          <entry key="properties" value="2" />
-          <entry key="sql" value="2" />
-          <entry key="xml" value="1" />
-          <entry key="yaml" value="1" />
+          <entry key="java" value="38" />
+          <entry key="properties" value="3" />
+          <entry key="sql" value="4" />
+          <entry key="xml" value="2" />
+          <entry key="yaml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="21" />
-          <entry key="Properties" value="2" />
-          <entry key="SQL" value="2" />
-          <entry key="XML" value="1" />
-          <entry key="YAML" value="1" />
+          <entry key="JAVA" value="38" />
+          <entry key="Properties" value="3" />
+          <entry key="SQL" value="4" />
+          <entry key="XML" value="2" />
+          <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2321" />
-          <entry key="txt" value="80" />
+          <entry key="java" value="4703" />
+          <entry key="txt" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2321" />
-          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="JAVA" value="4703" />
+          <entry key="PLAIN_TEXT" value="97" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-466">
-              <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="115" column="183" selection-start-line="115" selection-start-column="183" selection-end-line="115" selection-end-column="183" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,10 +160,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.java">
+        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/ChangePasswordBusinessService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+            <state relative-caret-position="200">
+              <caret line="34" column="10" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,25 +171,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/classes/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/JwtTokenProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/LoginResponse.java">
+        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdatePasswordResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-952">
+            <state relative-caret-position="170">
               <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/UpdateBusinessService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="451">
+              <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,11 +204,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="62" />
+            <state relative-caret-position="92">
+              <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/PasswordCryptographyProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -139,20 +225,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="20" column="7" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="41" column="76" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="81" />
+            <state relative-caret-position="-72">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,38 +237,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="170">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1478#1479#0" expanded="true" />
-                <element signature="e#1503#1504#0" expanded="true" />
-                <element signature="e#1540#1541#0" expanded="true" />
-                <element signature="e#1568#1569#0" expanded="true" />
-                <element signature="e#1599#1600#0" expanded="true" />
-                <element signature="e#1626#1627#0" expanded="true" />
-                <element signature="e#1666#1667#0" expanded="true" />
-                <element signature="e#1698#1699#0" expanded="true" />
-                <element signature="e#1741#1742#0" expanded="true" />
-                <element signature="e#1772#1773#0" expanded="true" />
-                <element signature="e#1828#1829#0" expanded="true" />
-                <element signature="e#1868#1869#0" expanded="true" />
-                <element signature="e#1906#1907#0" expanded="true" />
-                <element signature="e#1940#1941#0" expanded="true" />
-                <element signature="e#1994#1995#0" expanded="true" />
-                <element signature="e#2040#2041#0" expanded="true" />
-                <element signature="e#2081#2082#0" expanded="true" />
-                <element signature="e#2111#2112#0" expanded="true" />
-                <element signature="e#2164#2165#0" expanded="true" />
-                <element signature="e#2202#2203#0" expanded="true" />
-                <element signature="e#2245#2246#0" expanded="true" />
-                <element signature="e#2277#2278#0" expanded="true" />
-                <element signature="e#2334#2335#0" expanded="true" />
-                <element signature="e#2376#2377#0" expanded="true" />
-                <element signature="e#2418#2419#0" expanded="true" />
-                <element signature="e#2449#2450#0" expanded="true" />
-                <element signature="e#2504#2505#0" expanded="true" />
-                <element signature="e#2544#2545#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -203,14 +249,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+            <state relative-caret-position="-1425">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2975#2976#0" expanded="true" />
-                <element signature="e#3045#3046#0" expanded="true" />
-                <element signature="e#3077#3078#0" expanded="true" />
-                <element signature="e#3172#3173#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -231,14 +273,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java" />
         <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.java" />
-        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java" />
-        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" />
         <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.java" />
-        <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" />
-        <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" />
         <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/ChangePasswordBusinessService.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/UpdateBusinessService.java" />
       </list>
     </option>
   </component>
@@ -260,7 +304,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,29 +320,12 @@
               <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
               <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
-              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
-              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
               <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -307,16 +333,183 @@
               <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
               <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-api" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-db" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="businness" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodOrderingApp-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodOrderingApp-Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodOrderingAppBackend-STUB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -327,8 +520,8 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559979698163" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../postgresql-42.2.5.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560208197965" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Final_API_Assignment-master (2)/Final_API_Assignment-master/Trello_quora/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -367,7 +560,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1559932487659</updated>
-      <workItem from="1559932496371" duration="29001000" />
+      <workItem from="1559932496371" duration="32691000" />
+      <workItem from="1560187733500" duration="19535000" />
     </task>
     <task id="LOCAL-00001" summary="Files added for Draft version of 1st API">
       <created>1559941527224</created>
@@ -383,11 +577,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559961204541</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="3 Api's developed">
+      <created>1559979921552</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1559979921552</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29001000" />
+    <option name="totallyTimeSpent" value="52226000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -401,38 +602,38 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Capture Tool" />
-      <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20842217" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" sideWeight="0.50053304" side_tool="true" weight="0.6605206" />
-      <window_info anchor="bottom" id="Messages" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.44685465" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.20065077" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.6605206" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,30 +645,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Files added for Draft version of 1st API" />
     <MESSAGE value="2 API's done with 4 pending tasks left" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 API's done with 4 pending tasks left" />
+    <MESSAGE value="3 Api's developed" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 Api's developed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/AddressControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#25282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-db/src/main/resources/config/localhost.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/resources/application.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.class" />
     <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-544">
@@ -489,51 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-db/src/main/resources/sql/tables.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-db/src/main/resources/sql/insert.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="53" column="164" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="190" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/PasswordCryptographyProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2975#2976#0" expanded="true" />
-            <element signature="e#3045#3046#0" expanded="true" />
-            <element signature="e#3077#3078#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -544,78 +691,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/classes/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="33" selection-start-line="16" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-db/src/main/resources/config/localhost.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-db/src/main/resources/sql/tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-db/src/main/resources/sql/insert.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4760">
+          <caret line="8" column="97" selection-start-line="8" selection-start-column="97" selection-end-line="8" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/SignupCustomerRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1385">
+          <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdateCustomerRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="41" column="76" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1478#1479#0" expanded="true" />
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
-            <element signature="e#1626#1627#0" expanded="true" />
-            <element signature="e#1666#1667#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-            <element signature="e#1741#1742#0" expanded="true" />
-            <element signature="e#1772#1773#0" expanded="true" />
-            <element signature="e#1828#1829#0" expanded="true" />
-            <element signature="e#1868#1869#0" expanded="true" />
-            <element signature="e#1906#1907#0" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
-            <element signature="e#1994#1995#0" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2111#2112#0" expanded="true" />
-            <element signature="e#2164#2165#0" expanded="true" />
-            <element signature="e#2202#2203#0" expanded="true" />
-            <element signature="e#2245#2246#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2334#2335#0" expanded="true" />
-            <element signature="e#2376#2377#0" expanded="true" />
-            <element signature="e#2418#2419#0" expanded="true" />
-            <element signature="e#2449#2450#0" expanded="true" />
-            <element signature="e#2504#2505#0" expanded="true" />
-            <element signature="e#2544#2545#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466">
-          <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        <state relative-caret-position="137">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -624,26 +772,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        <state relative-caret-position="653">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LogoutBusinessService.java">
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/generated-sources/com/upgrad/FoodOrderingApp/api/model/UpdatePasswordResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+        <state relative-caret-position="170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1425">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/target/classes/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthTokenEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/JwtTokenProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/SignupBusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/LoginBusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/ChangePasswordBusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/PasswordCryptographyProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="115" column="183" selection-start-line="115" selection-start-column="183" selection-end-line="115" selection-end-column="183" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/UpdateBusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

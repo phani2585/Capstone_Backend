@@ -14,8 +14,8 @@ public class CustomerDao {
     private EntityManager entityManager;
 
 
-
-    public CustomerEntity createUser(CustomerEntity customerEntity) {
+    //saves the customer information of the created customer in the database
+    public CustomerEntity createCustomer(CustomerEntity customerEntity) {
         this.entityManager.persist(customerEntity);
         return customerEntity;
     }
@@ -34,8 +34,8 @@ public class CustomerDao {
     }
 
     public void updateCustomer(CustomerEntity updatedCustomerEntity) {
-        this.entityManager.merge(updatedCustomerEntity);
-    }
+    this.entityManager.merge(updatedCustomerEntity);
+   }
 
     public CustomerAuthTokenEntity getCustomerAuthToken(final String accessToken) {
         try {
@@ -44,4 +44,6 @@ public class CustomerDao {
             return null;
         }
     }
+
+
 }
