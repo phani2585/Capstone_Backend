@@ -30,7 +30,7 @@ public class CustomerEntity implements Serializable {
             strategy = GenerationType.IDENTITY
     )
     private long id;
-
+    //uuid must be UNIQUE & NOTNULL
     @Column(
             name = "UUID"
     )
@@ -57,16 +57,16 @@ public class CustomerEntity implements Serializable {
     )
     private String lastName;
 
-
+    //email can be NULL
     @Column(
             name = "EMAIL"
     )
-    @NotNull
+
     @Size(
             max = 50
     )
     private String email;
-
+    //contactNumber must be UNIQUE & NOTNULL
     @Column(
             name = "CONTACT_NUMBER"
     )
