@@ -15,11 +15,13 @@ import java.io.Serializable;
 @Table(
         name = "customer"
 )
-@NamedQueries({@NamedQuery(
+@NamedQueries(
+        {
+                @NamedQuery(
         name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber"
+        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber")
+}
 )
-})
 public class CustomerEntity implements Serializable {
 
     @Id

@@ -12,11 +12,9 @@ import java.io.Serializable;
 @Table(
         name = "address"
 )
-/*@NamedQueries({@NamedQuery(
-        name = "stateByStateUuid",
-        query = "select a from AddressEntity a where a.contactNumber = :contactNumber"
-)
-})*/
+@NamedQueries({
+        @NamedQuery(name = "addressByAddressUuid", query = "select a from AddressEntity a where a.uuid = :uuid")
+})
 
 public class AddressEntity implements Serializable {
 

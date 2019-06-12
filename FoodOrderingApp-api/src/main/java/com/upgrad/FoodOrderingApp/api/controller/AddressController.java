@@ -3,10 +3,12 @@ package com.upgrad.FoodOrderingApp.api.controller;
 
 import com.upgrad.FoodOrderingApp.api.model.*;
 import com.upgrad.FoodOrderingApp.service.businness.AuthorizeAccessTokenBusinessService;
+import com.upgrad.FoodOrderingApp.service.businness.GetAllStatesBusinessService;
 import com.upgrad.FoodOrderingApp.service.businness.SaveAddressBusinessService;
 import com.upgrad.FoodOrderingApp.service.businness.SignupBusinessService;
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
+import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AddressNotFoundException;
 import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SaveAddressException;
@@ -17,8 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 //RestController annotation specifies that this class represents a REST API(equivalent of @Controller + @ResponseBody)
 @RestController
@@ -52,30 +53,59 @@ public class AddressController {
         String [] bearerToken = accessToken.split("Bearer ");
         authorizationBusinessService.verifyAuthToken(bearerToken[1]);
 
-        final AddressEntity addressEntity = new AddressEntity();
 
-        addressEntity.setFlatBuilNumber(saveAddressRequest.getFlatBuildingName());
-        addressEntity.setCity(saveAddressRequest.getCity());
-        addressEntity.setLocality(saveAddressRequest.getLocality());
-        addressEntity.setPinCode(saveAddressRequest.getPincode());
-        addressEntity.setUuid(saveAddressRequest.getStateUuid());
+        final AddressEntity savedAddressEntity = saveAddressBusinessService.verifyAndSaveAddressDetails(accessToken, saveAddressRequest.getFlatBuildingName(), saveAddressRequest.getLocality(), saveAddressRequest.getCity(), saveAddressRequest.getPincode(), saveAddressRequest.getStateUuid());
 
-        saveAddressBusinessService.verifyAddressDetails(accessToken, saveAddressRequest.getFlatBuildingName(),saveAddressRequest.getLocality(),saveAddressRequest.getCity(),saveAddressRequest.getPincode(),saveAddressRequest.getStateUuid());
         SaveAddressResponse saveAddressResponse = new SaveAddressResponse()
-                .id(addressEntity.getUuid())
+                .id(savedAddressEntity.getUuid())
                 .status("ADDRESS SUCCESSFULLY REGISTERED");
         return new ResponseEntity<SaveAddressResponse>(saveAddressResponse, HttpStatus.OK);
 
     }
 
+   /* WORK IN PROGRESS ----
+    //getallsavedaddresses endpoint retrieves all the addresses of a valid customer present in the database
+
+    @RequestMapping(method = RequestMethod.GET, path = "/address/customer",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<AddressListResponse> getallsavedaddresses(@RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException) {
+
+        List<AddressEntity> addressEntityList=new ArrayList<AddressEntity>();
+        addressEntityList.addAll(getAllSavedAddressesBusinessService.getAllSavedAddresses());
+        AddressListResponse aListResponse=new StatesListResponse();
+
+        for (StateEntity stateEntity : stateEntityList) {
+
+            // List<StatesList> statesListList=new ArrayList<StatesList>();
+            StatesList statesList =new StatesList();
+            statesList.setId(UUID.fromString(stateEntity.getUuid()));
+            statesList.setStateName(stateEntity.getStateName());
+            statesListResponse.addStatesItem(statesList);
+        }
+
+
+        return new ResponseEntity<StatesListResponse>(statesListResponse,HttpStatus.OK);
+    }
+    */
+
     //getallstates endpoint retrieves all the states present in the database
     @RequestMapping(method = RequestMethod.GET, path = "/states",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<StatesList> getallstates(){
-        getAllStatesBusinessService.getAllStates();
+    public ResponseEntity<StatesListResponse> getallstates(){
 
-        StatesListResponse statesListResponse =new StatesListResponse()
-                .addStatesItem(StatesList statesItem)
-                .states(List<StatesList> statesList);
+
+        List<StateEntity> stateEntityList=new ArrayList<StateEntity>();
+        stateEntityList.addAll(getAllStatesBusinessService.getAllStates());
+        StatesListResponse statesListResponse=new StatesListResponse();
+
+        for (StateEntity stateEntity : stateEntityList) {
+
+           // List<StatesList> statesListList=new ArrayList<StatesList>();
+             StatesList statesList =new StatesList();
+            statesList.setId(UUID.fromString(stateEntity.getUuid()));
+            statesList.setStateName(stateEntity.getStateName());
+            statesListResponse.addStatesItem(statesList);
+        }
+
+
         return new ResponseEntity<StatesListResponse>(statesListResponse,HttpStatus.OK);
     }
 

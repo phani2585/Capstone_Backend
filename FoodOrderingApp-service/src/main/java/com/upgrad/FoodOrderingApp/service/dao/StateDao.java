@@ -2,23 +2,32 @@ package com.upgrad.FoodOrderingApp.service.dao;
 
 
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
-import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
-public class AddressDao {
+public class StateDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public AddressEntity getAddressByAddressUuid(String uuid) {
+    public List<StateEntity> getAllStates(){
+
         try {
-            return (AddressEntity)this.entityManager.createNamedQuery("addressByAddressUuid", AddressEntity.class).setParameter("uuid", uuid).getSingleResult();
+            return this.entityManager.createNamedQuery("allStates", StateEntity.class).getResultList();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    public StateEntity getStateByStateUuid(String uuid) {
+        try {
+            return (StateEntity)this.entityManager.createNamedQuery("stateByStateUuid", StateEntity.class).setParameter("uuid", uuid).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
