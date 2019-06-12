@@ -25,26 +25,15 @@ public class UpdateBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED)
 
-    public CustomerEntity verifyCustomerDetails(final String accessToken, final String firstName,final String lastName) throws AuthorizationFailedException, UpdateCustomerException {
-        CustomerAuthTokenEntity customerAuthTokenEntity = customerDao.getCustomerAuthToken(accessToken);
+    public CustomerEntity updateCustomerDetails(final String accessToken, String firstName,final String lastName) throws  UpdateCustomerException {
 
+        CustomerAuthTokenEntity customerAuthTokenEntity = customerDao.getCustomerAuthToken(accessToken);
         if (firstName == null) {
             throw new UpdateCustomerException("UCR-002", "First name field should not be empty");
-        }
-        if (customerAuthTokenEntity == null) {
-            throw new AuthorizationFailedException("ATHR-001", "Customer is not Logged in.");
-        } else if (customerAuthTokenEntity != null && customerAuthTokenEntity.getLogoutAt() != null) {
-            throw new AuthorizationFailedException("ATHR-002", "Customer is logged out. Log in again to access this endpoint.");
-        } else if (customerAuthTokenEntity != null && ZonedDateTime.now().isAfter(customerAuthTokenEntity.getExpiresAt())) {
-            throw new AuthorizationFailedException("ATHR-003", "Your session is expired. Log in again to access this endpoint.");
         } else {
             customerAuthTokenEntity.getCustomer().setFirstName(firstName);
             customerAuthTokenEntity.getCustomer().setLastName(lastName);
             return customerAuthTokenEntity.getCustomer();
         }
-
     }
-
-
-
 }

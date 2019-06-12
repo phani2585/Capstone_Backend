@@ -39,6 +39,9 @@ public class CustomerController {
     private LogoutBusinessService logoutBusinessService;
 
     @Autowired
+    private AuthorizeAccessTokenBusinessService authorizationBusinessService;
+
+    @Autowired
     private UpdateBusinessService updateBusinessService;
 
     @Autowired
@@ -99,10 +102,11 @@ public class CustomerController {
     @RequestMapping(method=RequestMethod.POST,path="/customer/logout",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<LogoutResponse> logout(@RequestHeader("accessToken") final String accessToken)throws AuthorizationFailedException {
         String [] bearerToken = accessToken.split("Bearer ");
-        final CustomerAuthTokenEntity customerAuthTokenEntity=logoutBusinessService.verifyAuthToken(bearerToken[1]);
+        authorizationBusinessService.verifyAuthToken(bearerToken[1]);
+       final  CustomerAuthTokenEntity logout = logoutBusinessService.logout(bearerToken[1]);
 
         LogoutResponse logoutResponse=new LogoutResponse()
-                .id(customerAuthTokenEntity.getUuid())
+                .id(logout.getUuid())
                 .message("LOGGED OUT SUCCESSFULLY");
         return new ResponseEntity<LogoutResponse>(logoutResponse,HttpStatus.OK);
     }
@@ -113,7 +117,8 @@ public class CustomerController {
                                                          @RequestHeader("accessToken") final String accessToken) throws UpdateCustomerException,AuthorizationFailedException {
 
         String [] bearerToken = accessToken.split("Bearer ");
-        final CustomerEntity updatedCustomerEntity=updateBusinessService.verifyCustomerDetails(bearerToken[1],updateCustomerRequest.getFirstName(),updateCustomerRequest.getLastName());
+        authorizationBusinessService.verifyAuthToken(bearerToken[1]);
+        final CustomerEntity updatedCustomerEntity=updateBusinessService.updateCustomerDetails(bearerToken[1],updateCustomerRequest.getFirstName(),updateCustomerRequest.getLastName());
 
         UpdateCustomerResponse updateCustomerResponse=new UpdateCustomerResponse()
                 .firstName(updatedCustomerEntity.getFirstName())
@@ -129,7 +134,7 @@ public class CustomerController {
                                                          @RequestHeader("accessToken") final String accessToken) throws UpdateCustomerException,AuthorizationFailedException {
 
         String [] bearerToken = accessToken.split("Bearer ");
-
+        authorizationBusinessService.verifyAuthToken(bearerToken[1]);
         final CustomerEntity updatedCustomerEntity=changePasswordBusinessService.updateCustomerPassword(bearerToken[1],updatePasswordRequest.getOldPassword(),updatePasswordRequest.getNewPassword());
 
         UpdatePasswordResponse updatePasswordResponse=new UpdatePasswordResponse()

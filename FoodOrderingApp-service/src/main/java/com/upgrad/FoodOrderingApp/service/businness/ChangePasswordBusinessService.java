@@ -29,24 +29,17 @@ public class ChangePasswordBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED)
 
-    public CustomerEntity updateCustomerPassword(final String accessToken, final String oldPassword,final String newPassword) throws AuthorizationFailedException, UpdateCustomerException {
+    public CustomerEntity updateCustomerPassword(final String accessToken, final String oldPassword,final String newPassword) throws  UpdateCustomerException {
         CustomerAuthTokenEntity customerAuthTokenEntity = customerDao.getCustomerAuthToken(accessToken);
 
-        System.out.println(oldPassword);
+       /* System.out.println(oldPassword);
         System.out.println(customerAuthTokenEntity.getCustomer().getPassword());
         System.out.println(customerAuthTokenEntity.getCustomer().getSalt());
        final String decryptedPassword = this.passwordCryptographyProvider.encrypt(oldPassword,customerAuthTokenEntity.getCustomer().getSalt());
        System.out.println(decryptedPassword);
-
+*/
         if (oldPassword == null || newPassword == null) {
             throw new UpdateCustomerException("UCR-003", "No field should be empty");
-        }
-        if (customerAuthTokenEntity == null) {
-            throw new AuthorizationFailedException("ATHR-001", "Customer is not Logged in.");
-        } else if (customerAuthTokenEntity != null && customerAuthTokenEntity.getLogoutAt() != null) {
-            throw new AuthorizationFailedException("ATHR-002", "Customer is logged out. Log in again to access this endpoint.");
-        } else if (customerAuthTokenEntity != null && ZonedDateTime.now().isAfter(customerAuthTokenEntity.getExpiresAt())) {
-            throw new AuthorizationFailedException("ATHR-003", "Your session is expired. Log in again to access this endpoint.");
         } else if(newPassword.length() < 8 || !newPassword.matches("(?=.*[0-9]).*") || !newPassword.matches("(?=.*[A-Z]).*")|| !newPassword.matches("(?=.*[~!@#$%^&*()_-]).*")) {
             throw new UpdateCustomerException("UCR-001","Weak password!");
         } //else if(!(old) ){

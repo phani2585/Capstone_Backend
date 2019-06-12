@@ -13,8 +13,8 @@ import java.io.Serializable;
         name = "address"
 )
 /*@NamedQueries({@NamedQuery(
-        name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber"
+        name = "stateByStateUuid",
+        query = "select a from AddressEntity a where a.contactNumber = :contactNumber"
 )
 })*/
 

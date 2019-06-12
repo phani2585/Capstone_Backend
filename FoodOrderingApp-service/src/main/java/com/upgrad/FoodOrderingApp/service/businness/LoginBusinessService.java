@@ -24,7 +24,7 @@ public class LoginBusinessService {
 
 
     //Throw exception,If the Basic authentication is not provided in correct format,“Basic username:password” (username:password encoded to Base64 format)
-   /* public void checkAuthenticationFormat(final String authentication) throws AuthenticationFailedException {
+   /*public void checkAuthenticationFormat(final String authentication) throws AuthenticationFailedException {
 
         byte[] decode = Base64.getDecoder().decode(authentication.split("Basic ")[1]);
         String decodedText = new String(decode);
@@ -34,7 +34,8 @@ public class LoginBusinessService {
 
         if(!decodedArray[0].matches(contactNumberRegex)) {
             throw new AuthenticationFailedException("ATH-003","Incorrect format of decoded customer name and password");
-        } else if(decodedArray[1].length() < 8 || !decodedArray[1].matches("(?=.*[0-9]).*") || !decodedArray[1].matches("(?=.*[A-Z]).*")|| !decodedArray[1].matches("(?=.*[~!@#$%^&*()_-]).*")) {
+        } else if(decodedArray[1].length() < 8 || !decodedArray[1].matches("(?=.*[0-9]).*") || !decodedArray[1].matches("(?=.*[A-Z]).*")||
+                !decodedArray[1].matches("(?=.*[~!@#$%^&*()_-]).*")) {
             throw new AuthenticationFailedException("ATH-003","Incorrect format of decoded customer name and password");
         }
     }*/

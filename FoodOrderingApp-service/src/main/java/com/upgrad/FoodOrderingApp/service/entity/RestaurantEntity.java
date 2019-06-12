@@ -3,7 +3,7 @@ package com.upgrad.FoodOrderingApp.service.entity;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import sun.text.normalizer.UCharacter;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
