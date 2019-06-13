@@ -1,7 +1,7 @@
-/*package com.upgrad.FoodOrderingApp.api.controller;
+package com.upgrad.FoodOrderingApp.api.controller;
 
 import com.upgrad.FoodOrderingApp.service.businness.CustomerService;
-import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthEntity;
+//import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AuthenticationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
@@ -129,7 +129,7 @@ public class CustomerControllerTest {
                 .andExpect(jsonPath("code").value("SGR-001"));
         verify(mockCustomerService, times(1)).saveCustomer(any());
     }
-
+/*
     // ----------------------------- POST /customer/login --------------------------------
 
     //This test case passes when you are able to login successfully.
@@ -481,6 +481,6 @@ public class CustomerControllerTest {
                 .andExpect(jsonPath("code").value("UCR-001"));
         verify(mockCustomerService, times(1)).getCustomer("auth");
         verify(mockCustomerService, times(1)).updateCustomerPassword("oldPwd", "newPwd", customerEntity);
-    }
+    }*/
 
-}*/
+}

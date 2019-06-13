@@ -1,6 +1,6 @@
 package com.upgrad.FoodOrderingApp.api.controller;
 
-//import necessary packages
+
 import com.upgrad.FoodOrderingApp.api.model.*;
 import com.upgrad.FoodOrderingApp.service.businness.*;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthTokenEntity;
@@ -21,6 +21,8 @@ import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
 
+import static org.mockito.ArgumentMatchers.any;
+
 //RestController annotation specifies that this class represents a REST API(equivalent of @Controller + @ResponseBody)
 @RestController
 //"@CrossOrigin” annotation enables cross-origin requests for all methods in that specific controller class.
@@ -30,7 +32,7 @@ public class CustomerController {
 
     //Required services are autowired to enable access to methods defined in respective Business services
     @Autowired
-    private SignupBusinessService signupBusinessService;
+    private CustomerService customerService;
 
     @Autowired
     private LoginBusinessService loginBusinessService;
@@ -53,7 +55,7 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.POST, path = "/customer/signup", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<SignupCustomerResponse> signup( @RequestBody(required = false) final SignupCustomerRequest signupCustomerRequest) throws SignUpRestrictedException {
 
-        final CustomerEntity customerEntity = new CustomerEntity();
+        CustomerEntity customerEntity=new CustomerEntity();
 
         customerEntity.setUuid(UUID.randomUUID().toString());
         customerEntity.setFirstName(signupCustomerRequest.getFirstName());
@@ -63,7 +65,8 @@ public class CustomerController {
         customerEntity.setSalt("1234abc");
         customerEntity.setPassword(signupCustomerRequest.getPassword());
 
-        final CustomerEntity createdCustomerEntity = signupBusinessService.signup(customerEntity,signupCustomerRequest.getFirstName(),signupCustomerRequest.getLastName(),signupCustomerRequest.getEmailAddress(),signupCustomerRequest.getContactNumber(),signupCustomerRequest.getPassword());
+
+        final CustomerEntity createdCustomerEntity = customerService.saveCustomer(customerEntity);
         SignupCustomerResponse customerResponse = new SignupCustomerResponse()
                 .id(createdCustomerEntity.getUuid())
                 .status("CUSTOMER SUCCESSFULLY REGISTERED");
