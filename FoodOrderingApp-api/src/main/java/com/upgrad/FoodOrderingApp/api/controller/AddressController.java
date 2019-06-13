@@ -2,10 +2,7 @@ package com.upgrad.FoodOrderingApp.api.controller;
 
 
 import com.upgrad.FoodOrderingApp.api.model.*;
-import com.upgrad.FoodOrderingApp.service.businness.AuthorizeAccessTokenBusinessService;
-import com.upgrad.FoodOrderingApp.service.businness.GetAllStatesBusinessService;
-import com.upgrad.FoodOrderingApp.service.businness.SaveAddressBusinessService;
-import com.upgrad.FoodOrderingApp.service.businness.SignupBusinessService;
+import com.upgrad.FoodOrderingApp.service.businness.*;
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
@@ -35,8 +32,8 @@ public class AddressController {
     @Autowired
     private AuthorizeAccessTokenBusinessService authorizationBusinessService;
 
-    //@Autowired
-    //private GetAllSavedAddressesBusinessService getAllSavedAddressesBusinessService;
+    @Autowired
+    private GetAllSavedAddressesBusinessService getAllSavedAddressesBusinessService;
 
     //@Autowired
     //private DeleteSavedAddressBusinessService deleteSavedAddressBusinessService;
@@ -44,6 +41,7 @@ public class AddressController {
     @Autowired
     private GetAllStatesBusinessService getAllStatesBusinessService;
 
+    /*WORK IN PROGRESS */
     //saveaddress  endpoint requests for all the attributes in “SaveAddressRequest” about the customer and saves the address of a customer successfully.
     //PLEASE NOTE @RequestBody(required = false) inside saveaddress function will disable parameters in request body in request model.
     @RequestMapping(method = RequestMethod.POST, path = "/address", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -63,29 +61,31 @@ public class AddressController {
 
     }
 
-   /* WORK IN PROGRESS ----
+/* WORK IN PROGRESS */
     //getallsavedaddresses endpoint retrieves all the addresses of a valid customer present in the database
 
     @RequestMapping(method = RequestMethod.GET, path = "/address/customer",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<AddressListResponse> getallsavedaddresses(@RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException) {
+    public ResponseEntity<AddressListResponse> getallsavedaddresses(@RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException  {
+
+        String [] bearerToken = accessToken.split("Bearer ");
+        authorizationBusinessService.verifyAuthToken(bearerToken[1]);
 
         List<AddressEntity> addressEntityList=new ArrayList<AddressEntity>();
-        addressEntityList.addAll(getAllSavedAddressesBusinessService.getAllSavedAddresses());
-        AddressListResponse aListResponse=new StatesListResponse();
+        addressEntityList.addAll(getAllSavedAddressesBusinessService.getAllSavedAddresses(accessToken));
+        AddressListResponse addressListResponse=new AddressListResponse();
 
-        for (StateEntity stateEntity : stateEntityList) {
+        for (AddressEntity addressEntity : addressEntityList) {
 
-            // List<StatesList> statesListList=new ArrayList<StatesList>();
-            StatesList statesList =new StatesList();
-            statesList.setId(UUID.fromString(stateEntity.getUuid()));
-            statesList.setStateName(stateEntity.getStateName());
-            statesListResponse.addStatesItem(statesList);
+            AddressList addressList =new AddressList();
+            addressList.setId(UUID.fromString(addressEntity.getUuid()));
+            //statesList.setStateName(stateEntity.getStateName());
+            addressListResponse.addAddressesItem(addressList);
         }
 
 
-        return new ResponseEntity<StatesListResponse>(statesListResponse,HttpStatus.OK);
+        return new ResponseEntity<AddressListResponse>(addressListResponse,HttpStatus.OK);
     }
-    */
+
 
     //getallstates endpoint retrieves all the states present in the database
     @RequestMapping(method = RequestMethod.GET, path = "/states",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -9,11 +9,9 @@ import java.io.Serializable;
 @Table(
         name = "category"
 )
-/*@NamedQueries({@NamedQuery(
-        name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber"
-)
-})*/
+@NamedQueries({
+        @NamedQuery( name = "allCategories", query = "select ca from CategoryEntity ca ")
+})
 public class CategoryEntity implements Serializable {
 
     @Id

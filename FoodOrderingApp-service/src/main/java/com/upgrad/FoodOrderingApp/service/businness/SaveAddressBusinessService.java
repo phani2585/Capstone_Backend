@@ -32,17 +32,17 @@ public class SaveAddressBusinessService {
     private StateDao stateDao;
 
 
-    @Transactional(propagation = Propagation.REQUIRED)
-    public AddressEntity verifyAndSaveAddressDetails(final String accessToken,final  String flatBuildingName, final String locality, final String city, final String pincode, final String stateUuid) throws SaveAddressException, AddressNotFoundException {
+    @Transactional(propagation = Propagation.REQUIRED)/* WORK IN PROGRESS */
+    public AddressEntity verifyAndSaveAddressDetails(final String accessToken,final  String flatBuildingName, final String locality, final String city, final String pincode, final String  StateUuid) throws SaveAddressException, AddressNotFoundException {
         CustomerAuthTokenEntity customerAuthTokenEntity = customerDao.getCustomerAuthToken(accessToken);
 
 
-        StateEntity stateEntity = stateDao.getStateByStateUuid(stateUuid);
+        StateEntity stateEntity = stateDao.getStateByStateid(StateUuid);
         AddressEntity addressEntityToSave=addressDao.getAddressByAddressUuid(customerAuthTokenEntity.getCustomer().getUuid());
 
         String pinCodeRegex = "^[0-9]{6}$";
 
-        if (flatBuildingName == null || locality == null || city == null || pincode == null || stateUuid == null) {
+        if (flatBuildingName == null || locality == null || city == null || pincode == null ) {//stateid code needs to be written
             throw new SaveAddressException("SAR-001", "No field can be empty");
         } else if (!pincode.matches(pinCodeRegex)) {
             throw new SaveAddressException("SAR-002", "Invalid pincode");
@@ -53,7 +53,7 @@ public class SaveAddressBusinessService {
             addressEntityToSave.setCity(city);
             addressEntityToSave.setLocality(locality);
             addressEntityToSave.setPinCode(pincode);
-            addressEntityToSave.setUuid(stateUuid);
+            addressEntityToSave.setUuid(StateUuid);
 
             return addressEntityToSave;
         }

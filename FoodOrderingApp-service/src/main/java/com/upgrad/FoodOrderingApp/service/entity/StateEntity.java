@@ -11,7 +11,7 @@ import java.io.Serializable;
 )
 @NamedQueries({
                 @NamedQuery(name = "allStates", query = "select s from StateEntity s"),
-                @NamedQuery(name = "stateByStateUuid",query="select s from StateEntity s where s.uuid=:uuid")
+                @NamedQuery(name = "stateByStateid",query="select s from StateEntity s where s.uuid=:uuid")
 
 })
 

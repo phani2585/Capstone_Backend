@@ -9,11 +9,9 @@ import java.io.Serializable;
 @Table(
         name = "payment"
 )
-/*@NamedQueries({@NamedQuery(
-        name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber"
-)
-})*/
+@NamedQueries({
+        @NamedQuery(name = "allPaymentMethods", query = "select p from PaymentEntity p ")
+})
 public class PaymentEntity implements Serializable {
 
     @Id
