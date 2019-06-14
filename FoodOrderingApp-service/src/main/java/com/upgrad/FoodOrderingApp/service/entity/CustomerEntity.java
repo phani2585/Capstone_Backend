@@ -16,12 +16,10 @@ import java.io.Serializable;
         name = "customer"
 )
 @NamedQueries(
-        {
-                @NamedQuery(
-        name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber")
-}
-)
+        {       //return customer record matching with a particular contact number
+                @NamedQuery(name = "customerByContactNumber", query = "select c from CustomerEntity c where c.contactNumber = :contactNumber")
+        }
+        )
 public class CustomerEntity implements Serializable {
 
     @Id

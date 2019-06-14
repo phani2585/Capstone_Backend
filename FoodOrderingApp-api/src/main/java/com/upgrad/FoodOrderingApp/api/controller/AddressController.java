@@ -27,19 +27,9 @@ public class AddressController {
 
     //Required services are autowired to enable access to methods defined in respective Business services
     @Autowired
-    private SaveAddressBusinessService saveAddressBusinessService;
-
+    private AddressService addressService;
     @Autowired
-    private AuthorizeAccessTokenBusinessService authorizationBusinessService;
-
-    @Autowired
-    private GetAllSavedAddressesBusinessService getAllSavedAddressesBusinessService;
-
-    //@Autowired
-    //private DeleteSavedAddressBusinessService deleteSavedAddressBusinessService;
-
-    @Autowired
-    private GetAllStatesBusinessService getAllStatesBusinessService;
+    private CustomerService customerService;
 
     /*WORK IN PROGRESS */
     //saveaddress  endpoint requests for all the attributes in “SaveAddressRequest” about the customer and saves the address of a customer successfully.
@@ -49,7 +39,7 @@ public class AddressController {
                                                            @RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException, SaveAddressException, AddressNotFoundException {
 
         String [] bearerToken = accessToken.split("Bearer ");
-        authorizationBusinessService.verifyAuthToken(bearerToken[1]);
+        //authorizationBusinessService.verifyAuthToken(bearerToken[1]);
 
 
         final AddressEntity savedAddressEntity = saveAddressBusinessService.verifyAndSaveAddressDetails(accessToken, saveAddressRequest.getFlatBuildingName(), saveAddressRequest.getLocality(), saveAddressRequest.getCity(), saveAddressRequest.getPincode(), saveAddressRequest.getStateUuid());
@@ -68,7 +58,7 @@ public class AddressController {
     public ResponseEntity<AddressListResponse> getallsavedaddresses(@RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException  {
 
         String [] bearerToken = accessToken.split("Bearer ");
-        authorizationBusinessService.verifyAuthToken(bearerToken[1]);
+        //authorizationBusinessService.verifyAuthToken(bearerToken[1]);
 
         List<AddressEntity> addressEntityList=new ArrayList<AddressEntity>();
         addressEntityList.addAll(getAllSavedAddressesBusinessService.getAllSavedAddresses(accessToken));

@@ -5,13 +5,10 @@ import com.upgrad.FoodOrderingApp.service.dao.AddressDao;
 import com.upgrad.FoodOrderingApp.service.dao.CustomerDao;
 import com.upgrad.FoodOrderingApp.service.dao.StateDao;
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
-import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthTokenEntity;
-import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
+import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthEntity;
 import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AddressNotFoundException;
-import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SaveAddressException;
-import com.upgrad.FoodOrderingApp.service.exception.SignUpRestrictedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -34,11 +31,11 @@ public class SaveAddressBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED)/* WORK IN PROGRESS */
     public AddressEntity verifyAndSaveAddressDetails(final String accessToken,final  String flatBuildingName, final String locality, final String city, final String pincode, final String  StateUuid) throws SaveAddressException, AddressNotFoundException {
-        CustomerAuthTokenEntity customerAuthTokenEntity = customerDao.getCustomerAuthToken(accessToken);
+        CustomerAuthEntity customerAuthEntity = customerDao.getCustomerAuthToken(accessToken);
 
 
         StateEntity stateEntity = stateDao.getStateByStateid(StateUuid);
-        AddressEntity addressEntityToSave=addressDao.getAddressByAddressUuid(customerAuthTokenEntity.getCustomer().getUuid());
+        AddressEntity addressEntityToSave=addressDao.getAddressByAddressUuid(customerAuthEntity.getCustomer().getUuid());
 
         String pinCodeRegex = "^[0-9]{6}$";
 
