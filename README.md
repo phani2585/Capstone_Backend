@@ -3,6 +3,7 @@ Rest API Endpoints-I (5+4=9 API's)
 =================================
 Customer Controller
 -----------------------------------
+
 1.signup - "/customer/signup
 2. login- "/customer/login"
 3. logout - "/customer/logout"
