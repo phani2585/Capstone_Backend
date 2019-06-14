@@ -4,12 +4,12 @@ package com.upgrad.FoodOrderingApp.api.controller;
 import com.upgrad.FoodOrderingApp.api.model.*;
 import com.upgrad.FoodOrderingApp.service.businness.*;
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
+import com.upgrad.FoodOrderingApp.service.entity.CustomerAddressEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AddressNotFoundException;
 import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SaveAddressException;
-import com.upgrad.FoodOrderingApp.service.exception.SignUpRestrictedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -32,7 +32,7 @@ public class AddressController {
     private CustomerService customerService;
 
 
-    /*WORK IN PROGRESS */
+
     //saveaddress  endpoint requests for all the attributes in “SaveAddressRequest” about the customer and saves the address of a customer successfully.
     //PLEASE NOTE @RequestBody(required = false) inside saveaddress function will disable parameters in request body in request model.
     @RequestMapping(method = RequestMethod.POST, path = "/address", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -49,8 +49,15 @@ public class AddressController {
         addressEntity.setLocality(saveAddressRequest.getLocality());
         addressEntity.setCity(saveAddressRequest.getCity());
         addressEntity.setPinCode(saveAddressRequest.getPincode());
+        addressEntity.setState(stateEntity);
+        addressEntity.setActive(1);
 
         final AddressEntity savedAddressEntity = addressService.saveAddress(addressEntity,stateEntity);
+
+        final CustomerAddressEntity customerAddressEntity=new CustomerAddressEntity();
+        customerAddressEntity.setAddress(savedAddressEntity);
+        customerAddressEntity.setCustomer(customerEntity);
+        addressService.createCustomerAddress(customerAddressEntity);
 
         SaveAddressResponse saveAddressResponse = new SaveAddressResponse()
                 .id(savedAddressEntity.getUuid())

@@ -2,8 +2,7 @@ package com.upgrad.FoodOrderingApp.service.dao;
 
 
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
-import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
-import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
+import com.upgrad.FoodOrderingApp.service.entity.CustomerAddressEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -21,6 +20,11 @@ public class AddressDao {
     public AddressEntity createAddress(AddressEntity addressEntity) {
         this.entityManager.persist(addressEntity);
         return addressEntity;
+    }
+    //creates a customerAddress record
+    public CustomerAddressEntity createCustomerAddress(CustomerAddressEntity customerAddressEntity) {
+        this.entityManager.persist(customerAddressEntity);
+        return customerAddressEntity;
     }
 
     public AddressEntity getAddressByAddressUuid(String StateUuid) {
