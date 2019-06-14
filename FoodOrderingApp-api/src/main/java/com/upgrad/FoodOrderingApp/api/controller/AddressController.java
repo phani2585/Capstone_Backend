@@ -31,6 +31,7 @@ public class AddressController {
     @Autowired
     private CustomerService customerService;
 
+
     /*WORK IN PROGRESS */
     //saveaddress  endpoint requests for all the attributes in “SaveAddressRequest” about the customer and saves the address of a customer successfully.
     //PLEASE NOTE @RequestBody(required = false) inside saveaddress function will disable parameters in request body in request model.
@@ -39,15 +40,22 @@ public class AddressController {
                                                            @RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException, SaveAddressException, AddressNotFoundException {
 
         String [] bearerToken = accessToken.split("Bearer ");
-        //authorizationBusinessService.verifyAuthToken(bearerToken[1]);
+        final CustomerEntity customerEntity = customerService.getCustomer(bearerToken[1]);
+        final StateEntity stateEntity = addressService.getStateByUUID(saveAddressRequest.getStateUuid());
+        final AddressEntity addressEntity= new AddressEntity();
 
+        addressEntity.setUuid(UUID.randomUUID().toString());
+        addressEntity.setFlatBuilNumber(saveAddressRequest.getFlatBuildingName());
+        addressEntity.setLocality(saveAddressRequest.getLocality());
+        addressEntity.setCity(saveAddressRequest.getCity());
+        addressEntity.setPinCode(saveAddressRequest.getPincode());
 
-        final AddressEntity savedAddressEntity = saveAddressBusinessService.verifyAndSaveAddressDetails(accessToken, saveAddressRequest.getFlatBuildingName(), saveAddressRequest.getLocality(), saveAddressRequest.getCity(), saveAddressRequest.getPincode(), saveAddressRequest.getStateUuid());
+        final AddressEntity savedAddressEntity = addressService.saveAddress(addressEntity,stateEntity);
 
         SaveAddressResponse saveAddressResponse = new SaveAddressResponse()
                 .id(savedAddressEntity.getUuid())
                 .status("ADDRESS SUCCESSFULLY REGISTERED");
-        return new ResponseEntity<SaveAddressResponse>(saveAddressResponse, HttpStatus.OK);
+        return new ResponseEntity<SaveAddressResponse>(saveAddressResponse, HttpStatus.CREATED);
 
     }
 
@@ -61,7 +69,7 @@ public class AddressController {
         //authorizationBusinessService.verifyAuthToken(bearerToken[1]);
 
         List<AddressEntity> addressEntityList=new ArrayList<AddressEntity>();
-        addressEntityList.addAll(getAllSavedAddressesBusinessService.getAllSavedAddresses(accessToken));
+        addressEntityList.addAll(addressService.getAllSavedAddresses(accessToken));
         AddressListResponse addressListResponse=new AddressListResponse();
 
         for (AddressEntity addressEntity : addressEntityList) {
@@ -83,7 +91,7 @@ public class AddressController {
 
 
         List<StateEntity> stateEntityList=new ArrayList<StateEntity>();
-        stateEntityList.addAll(getAllStatesBusinessService.getAllStates());
+        stateEntityList.addAll(addressService.getAllStates());
         StatesListResponse statesListResponse=new StatesListResponse();
 
         for (StateEntity stateEntity : stateEntityList) {

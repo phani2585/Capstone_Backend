@@ -25,9 +25,9 @@ public class StateDao {
         }
     }
 
-    public StateEntity getStateByStateid(String StateUuid) {
+    public StateEntity getStateByStateUuid(String StateUuid) {
         try {
-            return (StateEntity)this.entityManager.createNamedQuery("stateByStateid", StateEntity.class).setParameter("uuid", StateUuid).getSingleResult();
+            return (StateEntity)this.entityManager.createNamedQuery("stateByStateUuid", StateEntity.class).setParameter("uuid", StateUuid).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }

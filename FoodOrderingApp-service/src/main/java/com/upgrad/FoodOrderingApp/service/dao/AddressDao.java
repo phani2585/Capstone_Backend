@@ -17,6 +17,12 @@ public class AddressDao {
     @PersistenceContext
     private EntityManager entityManager;
 
+    //saves the customer address information of the created address record  in the database
+    public AddressEntity createAddress(AddressEntity addressEntity) {
+        this.entityManager.persist(addressEntity);
+        return addressEntity;
+    }
+
     public AddressEntity getAddressByAddressUuid(String StateUuid) {
         try {
             return (AddressEntity)this.entityManager.createNamedQuery("addressByAddressUuid", AddressEntity.class).setParameter("uuid", StateUuid).getSingleResult();
