@@ -52,7 +52,7 @@ public class AddressController {
         addressEntity.setState(stateEntity);
         addressEntity.setActive(1);
 
-        final AddressEntity savedAddressEntity = addressService.saveAddress(addressEntity,stateEntity);
+        final AddressEntity savedAddressEntity = addressService.saveAddress(addressEntity);
 
         final CustomerAddressEntity customerAddressEntity=new CustomerAddressEntity();
         customerAddressEntity.setAddress(savedAddressEntity);
@@ -66,29 +66,51 @@ public class AddressController {
 
     }
 
-/* WORK IN PROGRESS */
+     /*WORK IN PROGRESS*/
     //getallsavedaddresses endpoint retrieves all the addresses of a valid customer present in the database
-
     @RequestMapping(method = RequestMethod.GET, path = "/address/customer",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AddressListResponse> getallsavedaddresses(@RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException  {
 
         String [] bearerToken = accessToken.split("Bearer ");
-        //authorizationBusinessService.verifyAuthToken(bearerToken[1]);
+        final CustomerEntity customerEntity = customerService.getCustomer(bearerToken[1]);
 
         List<AddressEntity> addressEntityList=new ArrayList<AddressEntity>();
-        addressEntityList.addAll(addressService.getAllSavedAddresses(accessToken));
+        addressEntityList.addAll(addressService.getAllAddress(customerEntity));
         AddressListResponse addressListResponse=new AddressListResponse();
 
         for (AddressEntity addressEntity : addressEntityList) {
 
             AddressList addressList =new AddressList();
+            //AddressListState addressListState = new AddressListState();
+            //addressListState.setId(UUID.fromString(addressEntity.getState().getUuid()));
+            //addressListState.setStateName(addressEntity.getState().getStateName());
             addressList.setId(UUID.fromString(addressEntity.getUuid()));
-            //statesList.setStateName(stateEntity.getStateName());
+            addressList.setFlatBuildingName(addressEntity.getFlatBuilNumber());
+            addressList.setLocality(addressEntity.getLocality());
+            addressList.setPincode(addressEntity.getPinCode());
+            addressList.setCity(addressEntity.getCity());
+            //addressList.setState(addressListState);
             addressListResponse.addAddressesItem(addressList);
         }
 
-
         return new ResponseEntity<AddressListResponse>(addressListResponse,HttpStatus.OK);
+    }
+
+    @RequestMapping(method= RequestMethod.DELETE,path="/address/{address_id}",produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<DeleteAddressResponse> deleteAddress(@PathVariable("address_id") final String addressUuid,
+                                                         @RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException, AddressNotFoundException {
+
+        String [] bearerToken = accessToken.split("Bearer ");
+        final CustomerEntity signedinCustomerEntity = customerService.getCustomer(bearerToken[1]);
+        final AddressEntity addressEntityToDelete=addressService.getAddressByAddressUuid(addressUuid);
+        final CustomerAddressEntity customerAddressEntity=addressService.getCustomerIdByAddressId(addressEntityToDelete.getId());
+        final CustomerEntity ownerofAddressEntity=customerAddressEntity.getCustomer();
+        final String Uuid = addressService.deleteAddress(addressEntityToDelete,signedinCustomerEntity,ownerofAddressEntity);
+
+        DeleteAddressResponse deleteAddressResponse = new DeleteAddressResponse()
+                .id(UUID.fromString(Uuid))
+                .status("ADDRESS DELETED SUCCESSFULLY");
+        return new ResponseEntity<DeleteAddressResponse>(deleteAddressResponse, HttpStatus.OK);
     }
 
 
@@ -96,20 +118,16 @@ public class AddressController {
     @RequestMapping(method = RequestMethod.GET, path = "/states",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<StatesListResponse> getallstates(){
 
-
         List<StateEntity> stateEntityList=new ArrayList<StateEntity>();
         stateEntityList.addAll(addressService.getAllStates());
         StatesListResponse statesListResponse=new StatesListResponse();
 
         for (StateEntity stateEntity : stateEntityList) {
-
-           // List<StatesList> statesListList=new ArrayList<StatesList>();
-             StatesList statesList =new StatesList();
+            StatesList statesList =new StatesList();
             statesList.setId(UUID.fromString(stateEntity.getUuid()));
             statesList.setStateName(stateEntity.getStateName());
             statesListResponse.addStatesItem(statesList);
         }
-
 
         return new ResponseEntity<StatesListResponse>(statesListResponse,HttpStatus.OK);
     }

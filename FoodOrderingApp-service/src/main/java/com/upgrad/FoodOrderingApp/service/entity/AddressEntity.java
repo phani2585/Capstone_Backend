@@ -13,8 +13,8 @@ import java.io.Serializable;
         name = "address"
 )
 @NamedQueries({
-        @NamedQuery(name = "addressByAddressUuid", query = "select a from AddressEntity a where a.uuid = :uuid"),//This query needs to be tested n edited
-        @NamedQuery(name = "allSavedAddresses", query = "select a from AddressEntity a ") //This query needs to be tested n edited
+        @NamedQuery(name = "addressByAddressUuid", query = "select a from AddressEntity a where a.uuid =:uuid"),
+        @NamedQuery(name = "allSavedAddresses", query = "select a from AddressEntity a ") //returns all the address records
 })
 
 public class AddressEntity implements Serializable {

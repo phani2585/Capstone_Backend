@@ -1,10 +1,12 @@
 package com.upgrad.FoodOrderingApp.service.businness;
 
 import com.upgrad.FoodOrderingApp.service.dao.AddressDao;
+import com.upgrad.FoodOrderingApp.service.dao.CustomerAddressDao;
 import com.upgrad.FoodOrderingApp.service.dao.CustomerDao;
 import com.upgrad.FoodOrderingApp.service.dao.StateDao;
 import com.upgrad.FoodOrderingApp.service.entity.*;
 import com.upgrad.FoodOrderingApp.service.exception.AddressNotFoundException;
+import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SaveAddressException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,7 @@ public class AddressService {
 
     //Respective Data access object has been autowired to access the method defined in respective Dao
     @Autowired
-    private CustomerDao customerDao;
+    private CustomerAddressDao customerAddressDao;
     @Autowired
     private AddressDao addressDao;
     @Autowired
@@ -39,7 +41,7 @@ public class AddressService {
 
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public AddressEntity saveAddress(final AddressEntity addressEntity, final StateEntity stateEntity) throws SaveAddressException {
+    public AddressEntity saveAddress(final AddressEntity addressEntity) throws SaveAddressException {
 
         String pinCodeRegex = "^[0-9]{6}$";
 
@@ -58,14 +60,36 @@ public class AddressService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public List<AddressEntity> getAllSavedAddresses(final String accessToken) {
-            CustomerAuthEntity customerAuthEntity = customerDao.getCustomerAuthToken(accessToken);
+    public List<AddressEntity> getAllAddress(final CustomerEntity customerEntity) { return addressDao.getAllSavedAddresses(); }
 
-            return addressDao.getAllSavedAddresses();
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<StateEntity> getAllStates() { return stateDao.getAllStates(); }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public AddressEntity getAddressByAddressUuid(final String addressUuid) throws AddressNotFoundException {
+        AddressEntity addressEntity=addressDao.getAddressByAddressUuid(addressUuid);
+        if(addressUuid.isEmpty()) {
+            throw new AddressNotFoundException("ANF-005","Address id can not be empty");
+        }
+        if(addressEntity == null ) {
+            throw new AddressNotFoundException("ANF-003","No address by this id");
+        } else {
+            return addressEntity;
         }
 
-        @Transactional(propagation = Propagation.REQUIRED)
-        public List<StateEntity> getAllStates() {
-            return stateDao.getAllStates();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public CustomerAddressEntity getCustomerIdByAddressId(final long addressId) {
+     return customerAddressDao.getCustomerAddressByAddressId(addressId);
+    }
+    @Transactional(propagation = Propagation.REQUIRED)
+    public String deleteAddress(AddressEntity addressEntity,CustomerEntity signedcustomerEntity, CustomerEntity ownerofAddressEntity) throws AuthorizationFailedException {
+        if(!(signedcustomerEntity.getContactNumber().equals(ownerofAddressEntity.getContactNumber()))) {
+            throw new AuthorizationFailedException("ATHR-004","You are not authorized to view/update/delete any one else's address");
+        } else {
+            return addressDao.deleteAddress(addressEntity);
         }
+    }
+
 }

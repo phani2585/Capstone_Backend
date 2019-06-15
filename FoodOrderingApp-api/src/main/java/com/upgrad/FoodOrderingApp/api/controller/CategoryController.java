@@ -3,12 +3,8 @@ package com.upgrad.FoodOrderingApp.api.controller;
 
 import com.upgrad.FoodOrderingApp.api.model.CategoryList;
 import com.upgrad.FoodOrderingApp.api.model.CategoryListResponse;
-import com.upgrad.FoodOrderingApp.api.model.PaymentListResponse;
-import com.upgrad.FoodOrderingApp.api.model.PaymentResponse;
-import com.upgrad.FoodOrderingApp.service.businness.GetAllCategoriesBusinessService;
-import com.upgrad.FoodOrderingApp.service.businness.GetPaymentMethodsBusinessService;
+import com.upgrad.FoodOrderingApp.service.businness.CategoryService;
 import com.upgrad.FoodOrderingApp.service.entity.CategoryEntity;
-import com.upgrad.FoodOrderingApp.service.entity.PaymentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,7 +27,7 @@ public class CategoryController {
 
     //Required services are autowired to enable access to methods defined in respective Business services
     @Autowired
-    private GetAllCategoriesBusinessService getAllCategoriesBusinessService;
+    private CategoryService categoryService;
 
 
     //getallcategories endpoint retrieves all the categories present in the database, ordered by their name
@@ -40,7 +36,7 @@ public class CategoryController {
 
 
         List<CategoryEntity> categoryEntityList=new ArrayList<CategoryEntity>();
-        categoryEntityList.addAll(getAllCategoriesBusinessService.getAllCategories());
+        categoryEntityList.addAll(categoryService.getAllCategories());
         List<CategoryListResponse> categoryListResponseList=new ArrayList<CategoryListResponse>();
 
         for (CategoryEntity categoryEntity : categoryEntityList) {

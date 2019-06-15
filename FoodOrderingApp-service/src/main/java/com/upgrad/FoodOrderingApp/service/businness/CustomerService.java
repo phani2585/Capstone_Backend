@@ -167,10 +167,12 @@ public class CustomerService {
             throw new UpdateCustomerException("UCR-003", "No field should be empty");
         } else if(newPassword.length() < 8 || !newPassword.matches("(?=.*[0-9]).*") || !newPassword.matches("(?=.*[A-Z]).*")|| !newPassword.matches("(?=.*[~!@#$%^&*()_-]).*")) {
             throw new UpdateCustomerException("UCR-001","Weak password!");
-        } else if(!oldPassword.equals(customerEntity.getPassword()) ){
+        } else if(!passwordCryptographyProvider.encrypt(oldPassword,customerEntity.getSalt()).equals(customerEntity.getPassword()) ){
             throw new UpdateCustomerException("UCR-004","Incorrect old password!");
         } else {
-            customerEntity.setPassword(newPassword);
+            String[] encryptedText = this.passwordCryptographyProvider.encrypt(newPassword);
+            customerEntity.setSalt(encryptedText[0]);
+            customerEntity.setPassword(encryptedText[1]);
             return customerEntity;
         }
     }

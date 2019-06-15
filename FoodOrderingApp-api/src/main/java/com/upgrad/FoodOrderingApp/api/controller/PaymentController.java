@@ -3,11 +3,8 @@ package com.upgrad.FoodOrderingApp.api.controller;
 
 import com.upgrad.FoodOrderingApp.api.model.PaymentListResponse;
 import com.upgrad.FoodOrderingApp.api.model.PaymentResponse;
-import com.upgrad.FoodOrderingApp.api.model.StatesList;
-import com.upgrad.FoodOrderingApp.api.model.StatesListResponse;
-import com.upgrad.FoodOrderingApp.service.businness.GetPaymentMethodsBusinessService;
+import com.upgrad.FoodOrderingApp.service.businness.PaymentService;
 import com.upgrad.FoodOrderingApp.service.entity.PaymentEntity;
-import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,7 +28,7 @@ public class PaymentController {
 
     //Required services are autowired to enable access to methods defined in respective Business services
     @Autowired
-    private GetPaymentMethodsBusinessService getPaymentMethodsBusinessService;
+    private PaymentService paymentService;
 
 
     //getpaymentmethods endpoint retrieves all the payment methods details  present in the database
@@ -40,7 +37,7 @@ public class PaymentController {
 
 
         List<PaymentEntity> paymentEntityList=new ArrayList<PaymentEntity>();
-        paymentEntityList.addAll(getPaymentMethodsBusinessService.getPaymentMethods());
+        paymentEntityList.addAll(paymentService.getPaymentMethods());
         PaymentListResponse paymentListResponse=new PaymentListResponse();
 
         for (PaymentEntity paymentEntity : paymentEntityList) {

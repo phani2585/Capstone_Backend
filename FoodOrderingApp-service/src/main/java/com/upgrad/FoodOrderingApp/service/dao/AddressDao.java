@@ -27,14 +27,14 @@ public class AddressDao {
         return customerAddressEntity;
     }
 
-    public AddressEntity getAddressByAddressUuid(String StateUuid) {
+    public AddressEntity getAddressByAddressUuid(String addressUuid) {
         try {
-            return (AddressEntity)this.entityManager.createNamedQuery("addressByAddressUuid", AddressEntity.class).setParameter("uuid", StateUuid).getSingleResult();
+            return (AddressEntity)this.entityManager.createNamedQuery("addressByAddressUuid", AddressEntity.class).setParameter("uuid", addressUuid).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
     }
-//This method needs testing n editing
+    //retrieves all the saved addresses
     public List<AddressEntity> getAllSavedAddresses(){
 
         try {
@@ -42,5 +42,11 @@ public class AddressDao {
         } catch (NoResultException nre) {
             return null;
         }
+    }
+
+    public String deleteAddress(AddressEntity addressEntity){
+        String Uuid=addressEntity.getUuid();
+        this.entityManager.remove(addressEntity);
+        return Uuid;
     }
 }

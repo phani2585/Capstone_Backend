@@ -1,23 +1,17 @@
 package com.upgrad.FoodOrderingApp.service.entity;
 
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
 @Table(
         name = "customer_address"
 )
-/*@NamedQueries({@NamedQuery(
-        name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber"
-)
-})*/
+@NamedQueries({
+        @NamedQuery(name = "customerAddressByAddressId", query = "select ca from CustomerAddressEntity ca where ca.id = :id")
+})
 public class CustomerAddressEntity implements Serializable {
 
     @Id
