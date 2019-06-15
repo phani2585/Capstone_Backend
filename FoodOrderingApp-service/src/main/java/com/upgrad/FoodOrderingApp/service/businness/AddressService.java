@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -66,7 +67,7 @@ public class AddressService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public List<AddressEntity> getAllAddress(final CustomerEntity customerEntity) { return addressDao.getAllSavedAddresses(); }
+    public List<AddressEntity> getAllAddressByCustomer(final CustomerEntity customerEntity) { return addressDao.getAllSavedAddresses(); }
 
     @Transactional(propagation = Propagation.REQUIRED)
     public List<StateEntity> getAllStates() { return stateDao.getAllStates(); }
@@ -103,5 +104,8 @@ public class AddressService {
             return addressDao.deleteAddress(addressEntity);
         }
     }
-
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<CustomerAddressEntity> getAllCustomerAddressByCustomerId(final CustomerEntity customerEntity) {
+        return customerAddressDao.getCustomerAddressesListByCustomerId(customerEntity);
+    }
 }

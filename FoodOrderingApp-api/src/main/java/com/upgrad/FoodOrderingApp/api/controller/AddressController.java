@@ -73,23 +73,26 @@ public class AddressController {
 
         String [] bearerToken = accessToken.split("Bearer ");
         final CustomerEntity customerEntity = customerService.getCustomer(bearerToken[1]);
+        final List<CustomerAddressEntity> customerAddressesListByCustomerId = addressService.getAllCustomerAddressByCustomerId(customerEntity);
 
-        List<AddressEntity> addressEntityList=new ArrayList<AddressEntity>();
-        addressEntityList.addAll(addressService.getAllAddress(customerEntity));
+        AddressList addressList =new AddressList();
         AddressListResponse addressListResponse=new AddressListResponse();
 
-        for (AddressEntity addressEntity : addressEntityList) {
+        for( CustomerAddressEntity customerAddressEntity : customerAddressesListByCustomerId){
+           AddressEntity addressEntity = addressService.getAddressById(customerAddressEntity.getAddress().getId());
+            addressList.id(UUID.fromString(addressEntity.getUuid()));
+            addressList.flatBuildingName(addressEntity.getFlatBuilNumber());
+            addressList.locality(addressEntity.getLocality());
+            addressList.pincode(addressEntity.getPinCode());
+            addressList.city(addressEntity.getCity());
 
-            AddressList addressList =new AddressList();
-            //AddressListState addressListState = new AddressListState();
-            //addressListState.setId(UUID.fromString(addressEntity.getState().getUuid()));
-            //addressListState.setStateName(addressEntity.getState().getStateName());
-            addressList.setId(UUID.fromString(addressEntity.getUuid()));
-            addressList.setFlatBuildingName(addressEntity.getFlatBuilNumber());
-            addressList.setLocality(addressEntity.getLocality());
-            addressList.setPincode(addressEntity.getPinCode());
-            addressList.setCity(addressEntity.getCity());
-            //addressList.setState(addressListState);
+            final StateEntity stateEntity =addressService.getStateById(addressEntity.getState().getId());
+            AddressListState addressListState=new AddressListState();
+            addressListState.id(UUID.fromString(stateEntity.getUuid()));
+            addressListState.stateName(stateEntity.getStateName());
+
+            addressList.state(addressListState);
+
             addressListResponse.addAddressesItem(addressList);
         }
 

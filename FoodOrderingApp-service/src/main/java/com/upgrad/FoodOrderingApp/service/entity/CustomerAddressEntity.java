@@ -10,7 +10,8 @@ import java.io.Serializable;
         name = "customer_address"
 )
 @NamedQueries({
-        @NamedQuery(name = "customerAddressByAddressId", query = "select ca from CustomerAddressEntity ca where ca.id = :id")
+        @NamedQuery(name = "customerAddressByAddressId", query = "select ca from CustomerAddressEntity ca where ca.id = :id"),
+        @NamedQuery(name = "customerAddressesListByCustomerId", query = "select ca from CustomerAddressEntity ca where ca.customer = :customer order by ca.address desc")
 })
 public class CustomerAddressEntity implements Serializable {
 
