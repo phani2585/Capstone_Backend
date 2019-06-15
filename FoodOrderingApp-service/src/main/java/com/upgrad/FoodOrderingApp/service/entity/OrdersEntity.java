@@ -10,6 +10,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.time.ZonedDateTime;
 
@@ -47,7 +48,7 @@ public class OrdersEntity implements Serializable {
     )
     @NotNull
 
-    private DecimalFormat bill;
+    private BigDecimal bill;
 
     @ManyToOne
     @OnDelete(
@@ -63,7 +64,7 @@ public class OrdersEntity implements Serializable {
     )
 
     //discount can be NULL
-    private DecimalFormat discount;
+    private BigDecimal discount;
 
     @Column(name="DATE")
     @NotNull
@@ -122,28 +123,12 @@ public class OrdersEntity implements Serializable {
         this.uuid = uuid;
     }
 
-    public DecimalFormat getBill() {
-        return bill;
-    }
-
-    public void setBill(DecimalFormat bill) {
-        this.bill = bill;
-    }
-
     public CouponEntity getCoupon() {
         return coupon;
     }
 
     public void setCoupon(CouponEntity coupon) {
         this.coupon = coupon;
-    }
-
-    public DecimalFormat getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(DecimalFormat discount) {
-        this.discount = discount;
     }
 
     public ZonedDateTime getDate() {
@@ -184,5 +169,21 @@ public class OrdersEntity implements Serializable {
 
     public void setRestaurant(RestaurantEntity restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public BigDecimal getBill() {
+        return bill;
+    }
+
+    public void setBill(BigDecimal bill) {
+        this.bill = bill;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
     }
 }
