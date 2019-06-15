@@ -4,7 +4,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -13,9 +12,9 @@ import java.io.Serializable;
         name = "address"
 )
 @NamedQueries({
-        @NamedQuery(name = "addressByAddressUuid", query = "select a from AddressEntity a where a.uuid =:uuid"),
+        @NamedQuery(name = "addressByAddressUuid", query = "select a from AddressEntity a where a.uuid =:uuid"),//returns address by addressUuid
         @NamedQuery(name = "allSavedAddresses", query = "select a from AddressEntity a "),//returns all the address records
-        @NamedQuery(name = "getAddressById", query = "select a from AddressEntity a where a.id=:id")
+        @NamedQuery(name = "addressById", query = "select a from AddressEntity a where a.id =:id")//returns address record for a addressId
 })
 
 public class AddressEntity implements Serializable {

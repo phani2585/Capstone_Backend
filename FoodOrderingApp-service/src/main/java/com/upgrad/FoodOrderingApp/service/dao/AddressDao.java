@@ -1,6 +1,5 @@
 package com.upgrad.FoodOrderingApp.service.dao;
 
-
 import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerAddressEntity;
 import org.springframework.stereotype.Repository;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import java.util.List;
+
 
 @Repository
 public class AddressDao {
@@ -26,7 +25,7 @@ public class AddressDao {
         this.entityManager.persist(customerAddressEntity);
         return customerAddressEntity;
     }
-
+    //gets address record of a particular address uuid
     public AddressEntity getAddressByAddressUuid(String addressUuid) {
         try {
             return this.entityManager.createNamedQuery("addressByAddressUuid", AddressEntity.class).setParameter("uuid", addressUuid).getSingleResult();
@@ -34,25 +33,15 @@ public class AddressDao {
             return null;
         }
     }
-
-    public AddressEntity getAddressById(long id){
+    //gets address record by addressId
+    public AddressEntity getAddressById(long id) {
         try {
-            return entityManager.createNamedQuery("getAddressById" , AddressEntity.class).setParameter("id", id).getSingleResult();
-        }catch (NoResultException nre){
-            return null;
-        }
-    }
-
-    //retrieves all the saved addresses
-    public List<AddressEntity> getAllSavedAddresses(){
-
-        try {
-            return this.entityManager.createNamedQuery("allSavedAddresses", AddressEntity.class).getResultList();
+            return this.entityManager.createNamedQuery("addressById", AddressEntity.class).setParameter("id", id).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
     }
-
+    //deletes a particular address record
     public String deleteAddress(AddressEntity addressEntity){
         String Uuid=addressEntity.getUuid();
         this.entityManager.remove(addressEntity);

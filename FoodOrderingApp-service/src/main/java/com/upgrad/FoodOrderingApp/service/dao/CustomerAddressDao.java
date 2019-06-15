@@ -15,7 +15,7 @@ public class CustomerAddressDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-
+    //gets customerAddress record of a particular addressId
     public CustomerAddressEntity getCustomerAddressByAddressId(long AddressId){
 
         try {
@@ -24,11 +24,20 @@ public class CustomerAddressDao {
             return null;
         }
     }
-
+    //gets customerAddressList of a particular customerId
     public List<CustomerAddressEntity> getCustomerAddressesListByCustomerId(CustomerEntity customerEntity){
 
         try {
             return this.entityManager.createNamedQuery("customerAddressesListByCustomerId", CustomerAddressEntity.class).setParameter("customer", customerEntity).getResultList();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+    //gets address record by Id
+    public AddressEntity getAddressById(long id){
+
+        try {
+            return this.entityManager.createNamedQuery("AddressById", AddressEntity.class).setParameter("id", id).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
