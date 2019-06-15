@@ -39,6 +39,12 @@ public class AddressService {
         }
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
+    public StateEntity getStateById(final long id)  {
+        return  stateDao.getStateById(id);
+
+    }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     public AddressEntity saveAddress(final AddressEntity addressEntity) throws SaveAddressException {
@@ -76,6 +82,12 @@ public class AddressService {
         } else {
             return addressEntity;
         }
+
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public AddressEntity getAddressById(final long id)  {
+        return  addressDao.getAddressById(id);
 
     }
 

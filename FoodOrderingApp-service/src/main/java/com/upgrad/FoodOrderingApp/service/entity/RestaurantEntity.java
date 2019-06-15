@@ -8,17 +8,16 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+
 
 @Entity
 @Table(
         name = "restaurant"
 )
-/*@NamedQueries({@NamedQuery(
-        name = "customerByContactNumber",
-        query = "select c from CustomerEntity c where c.contactNumber = :contactNumber"
-)
-})*/
+@NamedQueries({
+        @NamedQuery(name = "allRestaurants", query = "select r from RestaurantEntity r ")
+})
 
 public class RestaurantEntity implements Serializable {
 
@@ -60,7 +59,7 @@ public class RestaurantEntity implements Serializable {
     )
     @NotNull
 
-    private DecimalFormat customerRating;
+    private BigDecimal customerRating;
 
     @Column(
             name = "AVERAGE_PRICE_FOR_TWO"
@@ -115,11 +114,11 @@ public class RestaurantEntity implements Serializable {
         this.photoUrl = photoUrl;
     }
 
-    public DecimalFormat getCustomerRating() {
+    public BigDecimal getCustomerRating() {
         return customerRating;
     }
 
-    public void setCustomerRating(DecimalFormat customerRating) {
+    public void setCustomerRating(BigDecimal customerRating) {
         this.customerRating = customerRating;
     }
 
