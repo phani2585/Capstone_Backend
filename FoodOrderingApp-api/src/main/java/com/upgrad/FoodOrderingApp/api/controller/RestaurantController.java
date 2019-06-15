@@ -7,10 +7,7 @@ import com.upgrad.FoodOrderingApp.service.businness.CategoryService;
 import com.upgrad.FoodOrderingApp.service.businness.CustomerService;
 //import com.upgrad.FoodOrderingApp.service.businness.ItemService;
 import com.upgrad.FoodOrderingApp.service.businness.RestaurantService;
-import com.upgrad.FoodOrderingApp.service.entity.AddressEntity;
-import com.upgrad.FoodOrderingApp.service.entity.PaymentEntity;
-import com.upgrad.FoodOrderingApp.service.entity.RestaurantEntity;
-import com.upgrad.FoodOrderingApp.service.entity.StateEntity;
+import com.upgrad.FoodOrderingApp.service.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -80,6 +77,11 @@ public class RestaurantController {
             restaurantDetailsResponseAddress.flatBuildingName(addressEntity.getFlatBuilNumber());
             restaurantDetailsResponseAddress.locality(addressEntity.getLocality());
             restaurantDetailsResponseAddress.pincode(addressEntity.getPinCode());
+
+
+            //final RestaurantCategoryEntity restaurantCategoryEntity=new RestaurantCategoryEntity();
+           // restaurantCategoryEntity.setRestaurant(restaurantEntity);
+            //restaurantCategoryEntity.setCategory(restaurantEntity.getCategory);
 
             restaurantDetailsResponseAddress.state(restaurantDetailsResponseAddressState);
             restaurantList.setAddress(restaurantDetailsResponseAddress);
