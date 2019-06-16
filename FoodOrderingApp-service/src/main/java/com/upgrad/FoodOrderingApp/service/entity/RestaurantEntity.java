@@ -16,7 +16,11 @@ import java.math.BigDecimal;
         name = "restaurant"
 )
 @NamedQueries({
-        @NamedQuery(name = "allRestaurants", query = "select r from RestaurantEntity r ")
+        @NamedQuery(name = "allRestaurants", query = "select r from RestaurantEntity r "),
+        @NamedQuery(name = "allRestaurantsByName", query = "select r from RestaurantEntity r where r.restaurantName LIKE :name "),
+        @NamedQuery(name = "allRestaurantBycategory" , query = "select r from RestaurantEntity r  " +
+                "INNER JOIN RestaurantCategoryEntity rc on r.id = rc.restaurant " +
+                "INNER JOIN CategoryEntity c on rc.category = c.id Where c.uuid =:uuid")
 })
 
 public class RestaurantEntity implements Serializable {

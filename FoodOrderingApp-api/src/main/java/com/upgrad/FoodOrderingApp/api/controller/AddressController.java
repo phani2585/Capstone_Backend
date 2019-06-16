@@ -96,6 +96,7 @@ public class AddressController {
             addressListResponse.addAddressesItem(addressList);
         }
 
+
         return new ResponseEntity<AddressListResponse>(addressListResponse,HttpStatus.OK);
     }
 

@@ -33,13 +33,5 @@ public class CustomerAddressDao {
             return null;
         }
     }
-    //gets address record by Id
-    public AddressEntity getAddressById(long id){
 
-        try {
-            return this.entityManager.createNamedQuery("AddressById", AddressEntity.class).setParameter("id", id).getSingleResult();
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
 }
