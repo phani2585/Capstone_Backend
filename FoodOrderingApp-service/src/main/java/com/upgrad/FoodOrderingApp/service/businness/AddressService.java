@@ -94,13 +94,13 @@ public class AddressService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public CustomerAddressEntity getCustomerIdByAddressId(final long addressId) {
-     return customerAddressDao.getCustomerAddressByAddressId(addressId);
+    public CustomerAddressEntity getCustomerAddressByAddress(final AddressEntity addressEntity) {
+     return customerAddressDao.getCustomerAddressByAddressId(addressEntity);
     }
     //If the access token provided by the customer exists in the database, but the user who has logged in is not the same user who has created the address throw exception
     @Transactional(propagation = Propagation.REQUIRED)
     public String deleteAddress(AddressEntity addressEntity,CustomerEntity signedcustomerEntity, CustomerEntity ownerofAddressEntity) throws AuthorizationFailedException {
-        if(!(signedcustomerEntity.getContactNumber().equals(ownerofAddressEntity.getContactNumber()))) {
+        if(signedcustomerEntity.getUuid() != ownerofAddressEntity.getUuid()) {
             throw new AuthorizationFailedException("ATHR-004","You are not authorized to view/update/delete any one else's address");
         } else {
             return addressDao.deleteAddress(addressEntity);

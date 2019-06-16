@@ -110,7 +110,7 @@ public class AddressController {
         String [] bearerToken = accessToken.split("Bearer ");
         final CustomerEntity signedinCustomerEntity = customerService.getCustomer(bearerToken[1]);
         final AddressEntity addressEntityToDelete=addressService.getAddressByAddressUuid(addressUuid);
-        final CustomerAddressEntity customerAddressEntity=addressService.getCustomerIdByAddressId(addressEntityToDelete.getId());
+        final CustomerAddressEntity customerAddressEntity=addressService.getCustomerAddressByAddress(addressEntityToDelete);
         final CustomerEntity ownerofAddressEntity=customerAddressEntity.getCustomer();
         final String Uuid = addressService.deleteAddress(addressEntityToDelete,signedinCustomerEntity,ownerofAddressEntity);
 
