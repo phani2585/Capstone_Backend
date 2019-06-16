@@ -36,19 +36,19 @@ public class CategoryDao {
         }
     }
 
-    public CategoryEntity getCategoryById(String category_id) {
+    public CategoryEntity getCategoryByUUID(String categoryUuid) {
 
         try {
-            return entityManager.createNamedQuery("categoryById", CategoryEntity.class).setParameter("uuid", category_id).getSingleResult();
+            return entityManager.createNamedQuery("categoryByUUID", CategoryEntity.class).setParameter("uuid", categoryUuid).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
     }
 
-    public List<CategoryItemEntity> getItemByCategoryId(CategoryEntity categoryEntity) {
+    public List<CategoryItemEntity> getCategoryItemListByCategory(CategoryEntity categoryEntity) {
 
         try {
-            return this.entityManager.createNamedQuery("customerItemByCategoryId", CategoryItemEntity.class).setParameter("categoryEntity", categoryEntity).getResultList();
+            return entityManager.createNamedQuery("categoryItemListByCategory", CategoryItemEntity.class).setParameter("category", categoryEntity).getResultList();
         } catch (NoResultException nre) {
             return null;
         }

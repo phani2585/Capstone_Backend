@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "category_item")
 @NamedQueries({
-        @NamedQuery( name = "customerItemByCategoryId", query = "select ci from CategoryItemEntity ci where ci.categoryEntity = :categoryEntity")
+        @NamedQuery( name = "categoryItemListByCategory", query = "select ci from CategoryItemEntity ci where ci.category = :category")
 })
 
 public class CategoryItemEntity implements Serializable {

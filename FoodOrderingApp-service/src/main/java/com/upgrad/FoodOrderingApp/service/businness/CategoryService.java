@@ -28,16 +28,12 @@ public class CategoryService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public CategoryEntity categoryById( String category_id) throws CategoryNotFoundException {
+    public CategoryEntity categoryByUUID(String categoryUuid) throws CategoryNotFoundException {
 
-
-
-        // String category_idAsString = Long.toString(category_id);
-
-        if(category_id == null) {
+        if(categoryUuid.isEmpty()) {
             throw new CategoryNotFoundException("CNF-001", "Category id field should not be empty");
         }
-        CategoryEntity categoryEntity = categoryDao.getCategoryById(category_id);
+        CategoryEntity categoryEntity = categoryDao.getCategoryByUUID(categoryUuid);
         if(categoryEntity == null){
             throw new CategoryNotFoundException("CNF-002", "No category by this id");
         }else{
@@ -46,10 +42,6 @@ public class CategoryService {
     }
 
     @Transactional
-    public List<CategoryItemEntity> getItemByCategoryId(CategoryEntity categoryEntity) {
+    public List<CategoryItemEntity> getCategoryItemListByCategory(CategoryEntity categoryEntity) { return  categoryDao.getCategoryItemListByCategory(categoryEntity); }
 
-
-        return  categoryDao.getItemByCategoryId(categoryEntity);
-
-    }
 }
