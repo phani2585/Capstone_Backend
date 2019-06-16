@@ -75,18 +75,19 @@ public class AddressController {
         final CustomerEntity customerEntity = customerService.getCustomer(bearerToken[1]);
         final List<CustomerAddressEntity> customerAddressesListByCustomerId = addressService.getAllCustomerAddressByCustomerId(customerEntity);
 
-        AddressList addressList =new AddressList();
+
         AddressListResponse addressListResponse=new AddressListResponse();
 
         for( CustomerAddressEntity customerAddressEntity : customerAddressesListByCustomerId){
-           final AddressEntity addressEntity = addressService.getAddressById(customerAddressEntity.getAddress().getId());
+            AddressList addressList =new AddressList();
+           final AddressEntity addressEntity = customerAddressEntity.getAddress();
             addressList.id(UUID.fromString(addressEntity.getUuid()));
             addressList.flatBuildingName(addressEntity.getFlatBuilNumber());
             addressList.locality(addressEntity.getLocality());
             addressList.pincode(addressEntity.getPinCode());
             addressList.city(addressEntity.getCity());
 
-            final StateEntity stateEntity =addressService.getStateById(addressEntity.getState().getId());
+            final StateEntity stateEntity =addressEntity.getState();
             AddressListState addressListState=new AddressListState();
             addressListState.id(UUID.fromString(stateEntity.getUuid()));
             addressListState.stateName(stateEntity.getStateName());
@@ -94,10 +95,11 @@ public class AddressController {
             addressList.state(addressListState);
 
             addressListResponse.addAddressesItem(addressList);
+
         }
 
-
         return new ResponseEntity<AddressListResponse>(addressListResponse,HttpStatus.OK);
+
     }
 
     //deleteAddress endpoint deletes the address of a particular customer
