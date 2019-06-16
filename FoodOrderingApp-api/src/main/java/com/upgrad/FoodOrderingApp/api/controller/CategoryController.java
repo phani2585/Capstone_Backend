@@ -1,18 +1,21 @@
 package com.upgrad.FoodOrderingApp.api.controller;
 
 
+import com.upgrad.FoodOrderingApp.api.model.CategoryDetailsResponse;
 import com.upgrad.FoodOrderingApp.api.model.CategoryList;
 import com.upgrad.FoodOrderingApp.api.model.CategoryListResponse;
+import com.upgrad.FoodOrderingApp.api.model.ItemList;
 import com.upgrad.FoodOrderingApp.service.businness.CategoryService;
+import com.upgrad.FoodOrderingApp.service.businness.ItemService;
 import com.upgrad.FoodOrderingApp.service.entity.CategoryEntity;
+import com.upgrad.FoodOrderingApp.service.entity.CategoryItemEntity;
+import com.upgrad.FoodOrderingApp.service.entity.ItemEntity;
+import com.upgrad.FoodOrderingApp.service.exception.CategoryNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,36 +26,71 @@ import java.util.UUID;
 //"@CrossOrigin” annotation enables cross-origin requests for all methods in that specific controller class.
 @CrossOrigin
 @RequestMapping("/")
+
 public class CategoryController {
 
-    //Required services are autowired to enable access to methods defined in respective Business services
     @Autowired
     private CategoryService categoryService;
 
-
-    //getallcategories endpoint retrieves all the categories present in the database, ordered by their name
-    @RequestMapping(method = RequestMethod.GET, path = "/category",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<CategoryListResponse>> getallcategories(){
+    @Autowired
+    private ItemService itemService;
 
 
+    // Get All Categories - “/category”
+    @RequestMapping(method = RequestMethod.GET, path = "/category",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<CategoryListResponse>> getAllCategories(){
         List<CategoryEntity> categoryEntityList=new ArrayList<CategoryEntity>();
         categoryEntityList.addAll(categoryService.getAllCategories());
+
         List<CategoryListResponse> categoryListResponseList=new ArrayList<CategoryListResponse>();
 
         for (CategoryEntity categoryEntity : categoryEntityList) {
 
-            CategoryList categoryList =new CategoryList();
-            categoryList.setId(UUID.fromString(categoryEntity.getUuid()));
-            categoryList.setCategoryName(categoryEntity.getCategoryName());
             CategoryListResponse categoryListResponse=new CategoryListResponse();
             categoryListResponseList.add(categoryListResponse
-                    .categoryName(categoryList.getCategoryName())
-                    .id(categoryList.getId()));
+                    .categoryName(categoryEntity.getCategoryName())
+                    .id(UUID.fromString(categoryEntity.getUuid())));
         }
 
         return new ResponseEntity<List<CategoryListResponse>>(categoryListResponseList, HttpStatus.OK);
     }
 
-    //@RequestMapping(method = RequestMethod.GET, path = "/category/{category_id}",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //public ResponseEntity<>
+    //  Get Category by Id - “/category/{category_id}”
+    @RequestMapping(method = RequestMethod.GET, path = "/category/{category_id}",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<CategoryDetailsResponse> getCategoryById(@PathVariable("category_id")final String category_id) throws CategoryNotFoundException {
+
+        // CategoryEntity categoryEntity = categoryService.categoryById( Long.parseLong(category_id));
+        CategoryEntity categoryEntity = categoryService.categoryById( category_id);
+
+        List<CategoryItemEntity> categoryItemEntity = categoryService.getItemByCategoryId(categoryEntity);
+
+        List<CategoryDetailsResponse> categoryDetailsResponseList=new ArrayList<CategoryDetailsResponse>();
+
+
+        CategoryDetailsResponse categoryDetailsResponse=new CategoryDetailsResponse();
+        List<ItemEntity> itemEntityList = new ArrayList<ItemEntity>();
+        itemEntityList = itemService.getAllItems();
+
+        ItemList itemlist = new ItemList();
+
+        for( CategoryItemEntity categoryItemEntity1 : categoryItemEntity){
+            for(ItemEntity itemEntity: itemEntityList){
+                if( categoryItemEntity1.getItem().getId() == itemEntity.getId()){
+
+                    itemlist.setId(UUID.fromString(itemEntity.getUuid()));
+                    itemlist.setItemName(itemEntity.getItemName());
+                    itemlist.setPrice(itemEntity.getPrice());
+                    itemlist.setItemType(ItemList.ItemTypeEnum.fromValue(itemEntity.getType()));
+
+                }
+            }
+        }
+        categoryDetailsResponse.addItemListItem(itemlist);
+        categoryDetailsResponse.id(UUID.fromString(categoryEntity.getUuid()))
+                .categoryName(categoryEntity.getCategoryName());
+
+        return new ResponseEntity<CategoryDetailsResponse>(categoryDetailsResponse, HttpStatus.OK);
+    }
+
 }
+

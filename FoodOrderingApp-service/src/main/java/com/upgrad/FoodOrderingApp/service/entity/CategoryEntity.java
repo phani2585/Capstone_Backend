@@ -14,7 +14,8 @@ import java.io.Serializable;
                 "INNER JOIN RestaurantCategoryEntity rc on c.id = rc.category " +
                 "INNER JOIN RestaurantEntity r on rc.restaurant = r.id Where r.uuid =:uuid order by c.categoryName"),
 
-        @NamedQuery(name = "allCategories", query = "select c from CategoryEntity c")
+        @NamedQuery(name = "allCategories", query = "select c from CategoryEntity c"),
+        @NamedQuery( name = "categoryById", query = "select ca from CategoryEntity ca where ca.uuid = :uuid ")
 })
 public class CategoryEntity implements Serializable {
 
